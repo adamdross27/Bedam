@@ -34,15 +34,18 @@ public class Reader
     }
         
         
-        public static void contactInformation() 
+        public static String[] contactInformation() 
         {
+            String str[] = new String[5];
             try {
                 FileReader contactInfo = new FileReader("./resources/contactInformation.txt");
                 BufferedReader br = new BufferedReader(contactInfo);
-                String line = null;
+                String line = "";
+                int i=0;
                 while ((line = br.readLine()) != null)
                 {
-                    System.out.println(line);
+                    str[i] = line+"\n";
+                    i++;
                 }
                 System.out.println();
                 br.close();
@@ -50,6 +53,7 @@ public class Reader
             {
                 System.err.println("Can't read from file...");
             }
+            return str;
         }
         
         // Room Information method

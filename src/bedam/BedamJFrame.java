@@ -105,6 +105,11 @@ public class BedamJFrame extends javax.swing.JFrame {
         contactButton.setForeground(new java.awt.Color(255, 255, 255));
         contactButton.setText("View contact information");
         contactButton.setPreferredSize(new java.awt.Dimension(230, 35));
+        contactButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                contactButtonActionPerformed(evt);
+            }
+        });
 
         makeBookingButton.setBackground(new java.awt.Color(172, 140, 71));
         makeBookingButton.setForeground(new java.awt.Color(255, 255, 255));
@@ -208,6 +213,11 @@ public class BedamJFrame extends javax.swing.JFrame {
         BedamJFrame.super.dispose();
         
     }//GEN-LAST:event_facilitiesButtonActionPerformed
+
+    private void contactButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_contactButtonActionPerformed
+        // TODO add your handling code here:
+        ContactJFrame.main(null);
+    }//GEN-LAST:event_contactButtonActionPerformed
 
     /**
      * @param args the command line arguments

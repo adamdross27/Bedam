@@ -1,1 +1,5 @@
+<<<<<<< Updated upstream
 37
+=======
+47
+>>>>>>> Stashed changes

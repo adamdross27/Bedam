@@ -2,7 +2,7 @@
  * Program Design and Construction
  * Ben Rogers - 21145117
  * Adam Ross - 21151208
- * Assignment One - Accommodation Booking System
+ * Assignment One - Hotel Booking System
  *
  */
 package bedam;
@@ -12,7 +12,10 @@ import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.awt.Desktop;
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Map;
@@ -20,29 +23,30 @@ import java.util.Map;
 public class Writer {
     // Write invoice method
 
-    public static void writeInvoice(Booking b1, LocalDate start, LocalDate end, int nights) { //This method will write the invoice onto a txt file and will open the file for the user.
+    public static void writeInvoice(Booking b1, LocalDate start, LocalDate end, int nights) {
         File file = new File("./resources/invoice.txt");
         String toWrite = "";
 
-        toWrite += "------------------------------------------------------------------------\n"; //For presentation purposes
+        toWrite += "------------------------------------------------------------------------\n"; //should be longest length now
         toWrite += "Thank you for booking with Bedam!\n";
         toWrite += "We have your booking details as follows: \n";
-        toWrite += "You are staying for " + nights + " nights.\n"; //Shows the number of nights they are staying for.
+//        toWrite += "Your booking is saved under the name: "+ p1.getName() +"\n";
+        toWrite += "You are staying for " + nights + " nights.\n";
         
-        DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("dd-MM-yyyy"); //Date formatter is needed to print in that form.
+        DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
         
-        toWrite += "Your stay is from "+start.format(dateFormatter) + " to " + end.format(dateFormatter)+"\n"; //Prints the dates
-
+        toWrite += "Your stay is from "+start.format(dateFormatter) + " to " + end.format(dateFormatter)+"\n";
+        //not sure why but room class doesnt have the correct amount of rooms or bathrooms
         if (b1.getAccommodation().getClass() == Room.class) {
             toWrite += "Bathrooms: 1\n";
             toWrite += "Bedrooms: 1\n";
 
         } else {
-            toWrite += "Bathrooms: " + b1.getAccommodation().getBathrooms() + "\n"; //Using get methods to get bedroom and bathroom values
+            toWrite += "Bathrooms: " + b1.getAccommodation().getBathrooms() + "\n";
             toWrite += "Bedrooms: " + b1.getAccommodation().getBedrooms() + "\n";
         }
-        if (b1.getAccommodation().getClass() == House.class) { //comparing the accommodation class to each of the three subclasses
-            toWrite += "You have chosen to stay in a house. \n"; //They have chosen to stay in ________
+        if (b1.getAccommodation().getClass() == House.class) {
+            toWrite += "You have chosen to stay in a house. \n";
             House accomHouse = (House) b1.getAccommodation();
             toWrite += accomHouse.toString();
         }
@@ -56,10 +60,9 @@ public class Writer {
             Room accomRoom = (Room) b1.getAccommodation();
             toWrite += accomRoom.toString();
         }
-        
-        toWrite += "\n------------------------------------------------------------------------\n"; 
-        toWrite += "\nTotal rent to pay: " + b1.getAccommodation().getRentPerNight() * nights +"\n"; //Total cost which is rentPerNight * nights
-        toWrite += "Booking number: " + b1.getBookingNum(); //Booking number that is used to cancel orders
+        toWrite += "------------------------------------------------------------------------\n";
+        toWrite += "\nTotal rent to pay: " + b1.getAccommodation().getRentPerNight() * nights +"\n";
+        toWrite += "Booking number: " + b1.getBookingNum();
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(file))) {
             writer.write(toWrite);
         } catch (IOException ex) {
@@ -68,17 +71,19 @@ public class Writer {
 
         //open the file for user to see
         try {
-            Desktop.getDesktop().open(file); //Opens the file onto the users screen.
+            Desktop.getDesktop().open(file);
         } catch (IOException ex) {
             System.out.println("IO Exception");
         }
 
     }
 
+    //Special request method (e.g. extra snacks)
+    //List of Names of previous guests
     public static void printBookingToFile(int bookingNum, Booking booking)
     {
         try {
-            FileWriter fileWriter = new FileWriter("./resources/GuestInformation.txt", true); //True means it will not overwrite, it will append
+            FileWriter fileWriter = new FileWriter("./resources/GuestInformation.txt", true);
             BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
             bufferedWriter.write(bookingNum + "," + booking.toHashMapString() + ",");
             bufferedWriter.newLine();
@@ -87,12 +92,12 @@ public class Writer {
         {
         }
     }
-    public static void writeNextBookingNum() throws IOException //Used as our booking number counter which increments every booking.
+    public static void writeNextBookingNum() throws IOException
     {
       int newBookingNum = Reader.readBookingNum() +1;
-        FileWriter fileWriter = new FileWriter("./resources/bookingNum.txt", false); //false means it will overwrite the file each time.
+        FileWriter fileWriter = new FileWriter("./resources/bookingNum.txt", false);
         BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
-        bufferedWriter.write(Integer.toString(newBookingNum)); //Writes the newBookingNum which is readBookingNum + 1 from Reader class. This is how we increment our booking numbers.
+        bufferedWriter.write(Integer.toString(newBookingNum));
         bufferedWriter.newLine();
         bufferedWriter.close();
 }
@@ -100,19 +105,62 @@ public class Writer {
     public static void writeFromHashMap() throws IOException
     {
         try {
-            FileWriter fileWriter = new FileWriter("./resources/GuestInformation.txt", false); //False means it will overwrite the file each time
+            FileWriter fileWriter = new FileWriter("./resources/GuestInformation.txt", false);
             BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
 
-            for (Map.Entry<Integer, Booking> entry : customerHashMap.entrySet()) { //For loop which prints the hashmap onto the txt file so it can be saved when the program closes and reopens. So data isn't lost. 
-                bufferedWriter.write(entry.getKey() + "," + entry.getValue().toHashMapString()+","); //Commas are used to split 
+            for (Map.Entry<Integer, Booking> entry : customerHashMap.entrySet()) {
+                //System.out.println(entry.getKey() + ":" + entry.getValue().toString());
+                bufferedWriter.write(entry.getKey() + "," + entry.getValue().toHashMapString()+",");
                 bufferedWriter.newLine();
             }
             bufferedWriter.close();
             fileWriter.close();
         } catch (IOException e) 
         {
-        }   
-    }  
+        }
+        
+    }
+    
+    /*
+    public static void removeBooking(int bookingNum) throws FileNotFoundException, IOException
+    {
+        String fileContents = Reader.readHashMapFile();
+        String[] splitContents = fileContents.split(",");
+        File file = new File("./resources/GuestInformation.txt");
+        FileWriter fileWriter = new FileWriter(file, false);
+        BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
+        for(int i = 0; i<CustomerHashMap.customerHashMap.size(); i+=2)
+        {
+            if(!splitContents[i].equals(bookingNum +""))
+            {
+                bufferedWriter.write(splitContents[i] + ",");
+                bufferedWriter.write(splitContents[i+1] + ",\n");
+            }
+         
+        }
+        bufferedWriter.close();
+        fileWriter.close();
+        
+//        
+//        BufferedReader br = new BufferedReader(fr);
+//        StringBuilder sb = new StringBuilder();
+//        FileWriter fileWriter = new FileWriter(file, true);
+//        BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
+//        String line = "";
+//        while((line = br.readLine()) != null)
+//        {
+//            //we need to fix this
+//            if(!line.contains(bookingNum + ","))
+//            {
+//                FileWriter fw = new FileWriter(file, false);
+//                fw.
+//            }
+//            if(!line.contains(CustomerHashMap.customerHashMap.get(bookingNum).toHashMapString()))
+//            {
+//                sb.append(line).append("");
+//            }
+//        }*/
+     
 }
 
     

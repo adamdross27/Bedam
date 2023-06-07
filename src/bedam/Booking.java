@@ -1,8 +1,8 @@
 /**
- * Program Design and Construction
- * Ben Rogers - 21145117
+ * Program Design and Construction 
+ * Ben Rogers - 21145117 
  * Adam Ross - 21151208
- * Assignment One - Accommodation Booking System
+ * Assignment One - Hotel Booking System
  *
  */
 package bedam;
@@ -13,11 +13,11 @@ import java.util.Scanner;
 
 public class Booking {
 
-    private static int nextBookingNum = 1; //This is our booking counter for every booking that is created, it will increase by 1, starting at number 1.
+    private static int nextBookingNum = 1;
     private Accommodation accommodation;
     private int locationID;
     private int numNightsBooked;
-    private LocalDate checkInDate; //Variables used for bookings
+    private LocalDate checkInDate;
     private LocalDate checkOutDate;
     private String locationStr;
     private int bookingNum;
@@ -27,7 +27,7 @@ public class Booking {
     {
         this.locationID = locationID;
         this.accommodation = accommodation;
-        this.numNightsBooked = numNightsBooked; //Constructor that instantiates all of these variables
+        this.numNightsBooked = numNightsBooked;
         this.checkInDate = checkInDate;
         this.checkOutDate = checkOutDate;
         this.locationStr = locationStr;
@@ -35,19 +35,21 @@ public class Booking {
   
     }
     
-    public Booking(int locationID, Accommodation accommodation, int numNightsBooked, LocalDate checkInDate, LocalDate checkOutDate, String locationStr, int bookingNum, double rentPerNight) throws IOException
+        public Booking(int locationID, Accommodation accommodation, int numNightsBooked, LocalDate checkInDate, LocalDate checkOutDate, String locationStr, int bookingNum, double rentPerNight) throws IOException
     {
         this.locationID = locationID;
         this.accommodation = accommodation;
         this.numNightsBooked = numNightsBooked;
         this.checkInDate = checkInDate;
-        this.checkOutDate = checkOutDate; //Second constructor which has rentPerNight
+        this.checkOutDate = checkOutDate;
         this.locationStr = locationStr;
         this.bookingNum = bookingNum;        
         this.accommodation.setRentPerNight(rentPerNight);
+        
+  
     }
 
-    public Accommodation getAccommodation() //Get and Set methods below
+    public Accommodation getAccommodation() 
     {
         return accommodation;
     }
@@ -131,7 +133,7 @@ public class Booking {
         output += "Number of Nights Booked: " + this.numNightsBooked+"\n";
         output += "Check In Date: " + this.checkInDate+"\n";
         output += "Check Out Date: " + this.checkOutDate+"\n";
-        output += "Number of Bedrooms: " + this.accommodation.getBedrooms()+"\n";  //toString method which prints the details about the booking
+        output += "Number of Bedrooms: " + this.accommodation.getBedrooms()+"\n";
         output += "Number of Bathrooms: " + this.accommodation.getBathrooms() +"\n";
         output += "Price Per Night: $" + this.accommodation.getRentPerNight() +"\n";
         output += "Total Cost: $" + this.accommodation.getRentPerNight() * this.numNightsBooked+"\n";
@@ -149,11 +151,11 @@ public class Booking {
         output += this.checkInDate+"~";
         output += this.checkOutDate+"~";
         output += this.accommodation.getBedrooms()+"~";
-        output += this.accommodation.getBathrooms() +"~"; //This is the toString that is used to print onto the HashMap so the bookings can be saved on a txt file and be accessed even when the program is closed
+        output += this.accommodation.getBathrooms() +"~";
         output += this.accommodation.getRentPerNight() +"~";
         output += this.accommodation.getRentPerNight() * this.numNightsBooked+"~";
-        output += this.locationStr + "~"; //~ are used as dividers between each variable
-        output += this.getBookingNum();  
+        output += this.locationStr + "~";
+        output += this.getBookingNum();
         
         return output;
     }
@@ -161,9 +163,8 @@ public class Booking {
     public static Booking bookingFromString(String str) throws IOException
     {
         Scanner scan = new Scanner(System.in);
-        String line;  
-        String[] parts = str.split("~"); //split the line into its respective parts, each part representing an aspect of the a booking
-        //following lines are just creating variables and casting them to the correct variable type so they can be used to create a booking
+        String line;
+        String[] parts = str.split("~");
         int location = Integer.parseInt(parts[0]);
         int numNightsBooked = Integer.parseInt(parts[1]);
         LocalDate checkInDate = LocalDate.parse(parts[2]);
@@ -172,12 +173,15 @@ public class Booking {
         int bathrooms = Integer.parseInt(parts[5]);
         double rentPerNight = Double.parseDouble(parts[6]);
         double totalCost = Double.parseDouble(parts[7]);
+        System.out.println(parts[6]);
+        System.out.println(parts[7]);
+        System.out.println(rentPerNight);
+        System.out.println(totalCost);
         String locationStr = parts[8];
         int bookingNum = Integer.parseInt(parts[9]);
         
-        //made an accommodation object from parts in the string
+
         Accommodation accom = new Accommodation(bedrooms, bathrooms, rentPerNight) {
-        //didnt utilise these methods but needed to include because of the abstract class
             @Override
             public double calculateRentPerNight(int numOfNights) {
                 //adding abstract methods
@@ -190,8 +194,8 @@ public class Booking {
             }
         };
       
-        //finally create a booking using the data gathered from the string
-       return new Booking(location, accom, numNightsBooked, checkInDate, checkOutDate, locationStr, bookingNum, rentPerNight);
+        Booking b1 = new Booking(location, accom, numNightsBooked, checkInDate, checkOutDate, locationStr, bookingNum, rentPerNight);
+        return b1;
     }
       
     

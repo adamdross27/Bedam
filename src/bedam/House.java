@@ -2,63 +2,59 @@
  * Program Design and Construction
  * Ben Rogers - 21145117
  * Adam Ross - 21151208
- * Assignment One - Accommodation Booking System
+ * Assignment One - Hotel Booking System
  *
  */
 package bedam;
 
-public class House extends Accommodation { //Subclass of Accommodation
+public class House extends Accommodation {
 
     private boolean hasPool; //User is asked if they want each of these for an extra $$ per night
     private boolean hasYard;
     private boolean hasGarage;
 
-    public House(int bedrooms, int bathrooms, double rentPerNight) 
-    {
-        super(bedrooms, bathrooms, rentPerNight); //Invoking super from Accommodation
+    public House(int bedrooms, int bathrooms, double rentPerNight) {
+        super(bedrooms, bathrooms, rentPerNight);
     }
 
-    @Override //Overriding calculateRentPerNight method from abstract class
+    @Override
     public double calculateRentPerNight(int numOfNights) {
-
+        //just a rough kinda vibe of a price 'formula'?
         double rent = 0.0;
-        rent += (double) getBedrooms() * 45.0; //Depending on how many bedrooms/bathrooms user chooses, the value is multiplied by the price.
+        rent += (double) getBedrooms() * 45.0;
         rent += (double) getBathrooms() * 15.0;
         if (hasPool) {
             rent += 50;
         }
-        if (hasYard) { //If statements for boolean conditions. These are the add-ons the user may choose to select.
+        if (hasYard) {
             rent += 15;
         }
         if (hasGarage) {
             rent += 20;
         }
         System.out.println();
-        rent *= numOfNights; //Calculates the rent for total or 1 night depending on argument entered.
+        rent *= numOfNights;
         return rent;
     }
 
     @Override
+    //could use for write class possibly?
     public void printDetails() {
         System.out.println("Details...");
-        
-        System.out.println("Number Of Bedrooms: " + getBedrooms());
-        System.out.println("Number Of Bathrooms: " + getBathrooms());
-        
         if (hasPool) {
             System.out.print("Pool available, ");
         }
         if (hasYard) {
-            System.out.print("Yard Available, "); //Prints these statements based on if user selects some/all of these add-ons.
+            System.out.print("Yard Available, ");
         }
         if (hasGarage) {
             System.out.print("Garage Available");
         }
-        System.out.println("Rent Per Night: $" + this.calculateRentPerNight(1)); //Calculates the rent for just one night.
+        System.out.println("Rent Per Night: $" + this.calculateRentPerNight(1)); //not sure how to implement num of nights for now
     }
 
     @Override
-    public String toString() { //Overriden toString method
+    public String toString() {
         String string = "";
         if (hasPool) {
             string+=("Pool available, ");
@@ -69,11 +65,11 @@ public class House extends Accommodation { //Subclass of Accommodation
         if (hasGarage) {
             string+=("Garage Available");
         }
-        string+=("\nRent Per Night: $" + this.calculateRentPerNight(1));
+        string+=("\nRent Per Night: $" + this.calculateRentPerNight(1) + "\n");
         return string;
     }
 
-    public boolean isHasPool() { //Get and set methods for private variables
+    public boolean isHasPool() {
         return hasPool;
     }
 

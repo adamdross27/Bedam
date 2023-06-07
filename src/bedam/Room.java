@@ -2,24 +2,23 @@
  * Program Design and Construction
  * Ben Rogers - 21145117
  * Adam Ross - 21151208
- * Assignment One - Accommodation Booking System
+ * Assignment One - Hotel Booking System
  *
  */
 package bedam;
 
-public class Room extends Accommodation { //Extends the Accommodation class. Room is subclass of Accommodation
+public class Room extends Accommodation {
 
     private boolean hasTowels;
-    private boolean isPrivateRoom; //Unique variables to Room
+    private boolean isPrivateRoom;
     private boolean hasAirConditioning;
 
-    public Room(int bedrooms, int bathrooms, double rentPerNight) 
-    {
-        super(1, 1, rentPerNight); //Constructor instantiates bedrooms and bathrooms to 1 as the user gets no choice on this
+    public Room(int bedrooms, int bathrooms, double rentPerNight) {
+        super(1, 1, rentPerNight);
      
     }
 
-    @Override //Overriden calculateRentPerNight method which has the unique add-ons to account for
+    @Override
     public double calculateRentPerNight(int numOfNights) {
         double rent = 0.0;
         rent += (double) getBedrooms() * 45.0;
@@ -34,11 +33,11 @@ public class Room extends Accommodation { //Extends the Accommodation class. Roo
             rent += 20;
         }
         rent *= numOfNights;
-        return rent; //returns rent value as a double
+        return rent;
     }
 
     @Override
-    public void printDetails() { //Prints the details about the Room
+    public void printDetails() {
         System.out.println("\nDetails about your booking:\n");
 
         System.out.println("Number Of Bedrooms: " + getBedrooms());
@@ -54,7 +53,7 @@ public class Room extends Accommodation { //Extends the Accommodation class. Roo
             System.out.print("Air conditioning included");
         }
         System.out.println("");
-        System.out.println("Rent Per Night: $" + this.calculateRentPerNight(1)); //Calculates rent for one night.
+        System.out.println("Rent: $" + this.calculateRentPerNight(1) + "\n");
     }
 
     @Override
@@ -64,16 +63,16 @@ public class Room extends Accommodation { //Extends the Accommodation class. Roo
             string += ("Towels included, ");
         }
         if (isPrivateRoom) {
-            string += ("The room is private, "); //Adds these to the string if they are true
+            string += ("The room is private, ");
         }
         if (hasAirConditioning) {
             string += ("Air conditioning included");
         }
-        string += ("\nRent Per Night: $" + this.calculateRentPerNight(1));
+        string += ("\nRent Per Night: $" + this.calculateRentPerNight(1) + "\n");
         return string;
     }
 
-    public boolean isHasTowels() { //Get and Set methods for the variables
+    public boolean isHasTowels() {
         return hasTowels;
     }
 

@@ -115,6 +115,11 @@ public class BedamJFrame extends javax.swing.JFrame {
         makeBookingButton.setForeground(new java.awt.Color(255, 255, 255));
         makeBookingButton.setText("Make a booking");
         makeBookingButton.setPreferredSize(new java.awt.Dimension(230, 35));
+        makeBookingButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                makeBookingButtonActionPerformed(evt);
+            }
+        });
 
         cancelBookingButton.setBackground(new java.awt.Color(172, 140, 71));
         cancelBookingButton.setForeground(new java.awt.Color(255, 255, 255));
@@ -230,6 +235,12 @@ public class BedamJFrame extends javax.swing.JFrame {
         AddOnsJFrame.main(null);
         BedamJFrame.super.dispose();
     }//GEN-LAST:event_addOnsButtonActionPerformed
+
+    private void makeBookingButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_makeBookingButtonActionPerformed
+        // TODO add your handling code here:
+         MakeBookingJFrame.main(null);
+        BedamJFrame.super.dispose();
+    }//GEN-LAST:event_makeBookingButtonActionPerformed
 
     /**
      * @param args the command line arguments

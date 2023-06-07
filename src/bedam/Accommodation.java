@@ -52,6 +52,6 @@ public abstract class Accommodation //Abstract class that will have variables an
 
     public void setRentPerNight(double rentPerNight) 
     {
-        this.rentPerNight = rentPerNight;
-    }
+        this.rentPerNight = rentPerNight; //Set method for rentPerNight
+    } 
 }

@@ -32,20 +32,7 @@ public class Booking {
         this.checkOutDate = checkOutDate;
         this.locationStr = locationStr;
         this.bookingNum = bookingNum;
-  
-    }
-    
-        public Booking(int locationID, Accommodation accommodation, int numNightsBooked, LocalDate checkInDate, LocalDate checkOutDate, String locationStr, int bookingNum, double rentPerNight) throws IOException
-    {
-        this.locationID = locationID;
-        this.accommodation = accommodation;
-        this.numNightsBooked = numNightsBooked;
-        this.checkInDate = checkInDate;
-        this.checkOutDate = checkOutDate;
-        this.locationStr = locationStr;
-        this.bookingNum = bookingNum;        
-        this.accommodation.setRentPerNight(rentPerNight);
-        
+        Writer.writeNextBookingNum();
   
     }
 
@@ -173,10 +160,6 @@ public class Booking {
         int bathrooms = Integer.parseInt(parts[5]);
         double rentPerNight = Double.parseDouble(parts[6]);
         double totalCost = Double.parseDouble(parts[7]);
-        System.out.println(parts[6]);
-        System.out.println(parts[7]);
-        System.out.println(rentPerNight);
-        System.out.println(totalCost);
         String locationStr = parts[8];
         int bookingNum = Integer.parseInt(parts[9]);
         
@@ -194,9 +177,8 @@ public class Booking {
             }
         };
       
-        Booking b1 = new Booking(location, accom, numNightsBooked, checkInDate, checkOutDate, locationStr, bookingNum, rentPerNight);
+        Booking b1 = new Booking(location, accom, numNightsBooked, checkInDate, checkOutDate, locationStr, bookingNum);
         return b1;
     }
-      
     
 }

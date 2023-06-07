@@ -4,7 +4,6 @@
  */
 package bedam;
 
-import java.io.IOException;
 import java.time.LocalDate;
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -15,7 +14,7 @@ import java.util.Scanner;
  */
 public class ConfirmBooking 
 {
-    public static boolean confirmBooking(Accommodation accommodation, int numBedrooms, int numBathrooms, int numNightsBooked, LocalDate checkInDate, LocalDate checkOutDate) throws IOException
+    public static boolean confirmBooking(Accommodation accommodation, int numBedrooms, int numBathrooms, int numNightsBooked, LocalDate checkInDate, LocalDate checkOutDate)
     {
         Scanner scan = new Scanner(System.in);
         
@@ -58,7 +57,7 @@ public class ConfirmBooking
                 System.out.println("Number of Nights Booked: "+ numNightsBooked);
                 System.out.println("Total: $"+ accommodation.getRentPerNight() + " * " + numNightsBooked);
                 System.out.println("= $"+ accommodation.getRentPerNight() * numNightsBooked);
-                Writer.writeNextBookingNum();
+                
             }
             else if(responseChar == 'n' || responseChar == 'n')
             {

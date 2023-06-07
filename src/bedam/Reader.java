@@ -9,13 +9,14 @@ package bedam;
 
 import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.Scanner;
 
 public class Reader 
 {
-        public static String about() {
+  public static String about() {
            String output = "";
         try {
             FileReader about = new FileReader("./resources/aboutBedam.txt");
@@ -31,6 +32,7 @@ public class Reader
         }
         return output;
     }
+        
         
         public static void contactInformation() 
         {
@@ -104,22 +106,4 @@ public class Reader
 
         
         // Read Invoice Method
-
-    public static void viewAddOns() {
-        try {
-                FileReader addOns = new FileReader("./resources/addOns.txt");
-                BufferedReader br = new BufferedReader(addOns);
-                String line = null;
-                while ((line = br.readLine()) != null)
-                {
-                    System.out.println(line);
-                }
-                System.out.println();
-                br.close();
-            } catch (IOException e) 
-            {
-                System.err.println("Can't read from file...");
-            }
-        
-    }
 }

@@ -7,18 +7,13 @@
  */
 package bedam;
 
-import static bedam.CustomerHashMap.customerHashMap;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.awt.Desktop;
-import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.Map;
 
 public class Writer {
     // Write invoice method
@@ -100,68 +95,10 @@ public class Writer {
         bufferedWriter.write(Integer.toString(newBookingNum));
         bufferedWriter.newLine();
         bufferedWriter.close();
-}
-    
-    public static void writeFromHashMap() throws IOException
-    {
-        try {
-            FileWriter fileWriter = new FileWriter("./resources/GuestInformation.txt", false);
-            BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
-
-            for (Map.Entry<Integer, Booking> entry : customerHashMap.entrySet()) {
-                //System.out.println(entry.getKey() + ":" + entry.getValue().toString());
-                bufferedWriter.write(entry.getKey() + "," + entry.getValue().toHashMapString()+",");
-                bufferedWriter.newLine();
-            }
-            bufferedWriter.close();
-            fileWriter.close();
-        } catch (IOException e) 
-        {
-        }
         
-    }
-    
-    /*
-    public static void removeBooking(int bookingNum) throws FileNotFoundException, IOException
-    {
-        String fileContents = Reader.readHashMapFile();
-        String[] splitContents = fileContents.split(",");
-        File file = new File("./resources/GuestInformation.txt");
-        FileWriter fileWriter = new FileWriter(file, false);
-        BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
-        for(int i = 0; i<CustomerHashMap.customerHashMap.size(); i+=2)
-        {
-            if(!splitContents[i].equals(bookingNum +""))
-            {
-                bufferedWriter.write(splitContents[i] + ",");
-                bufferedWriter.write(splitContents[i+1] + ",\n");
-            }
-         
-        }
-        bufferedWriter.close();
-        fileWriter.close();
         
-//        
-//        BufferedReader br = new BufferedReader(fr);
-//        StringBuilder sb = new StringBuilder();
-//        FileWriter fileWriter = new FileWriter(file, true);
-//        BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
-//        String line = "";
-//        while((line = br.readLine()) != null)
-//        {
-//            //we need to fix this
-//            if(!line.contains(bookingNum + ","))
-//            {
-//                FileWriter fw = new FileWriter(file, false);
-//                fw.
-//            }
-//            if(!line.contains(CustomerHashMap.customerHashMap.get(bookingNum).toHashMapString()))
-//            {
-//                sb.append(line).append("");
-//            }
-//        }*/
-     
 }
 
     
-     
+        
+}

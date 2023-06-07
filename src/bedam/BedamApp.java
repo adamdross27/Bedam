@@ -32,15 +32,16 @@ public class BedamApp {
         CustomerHashMap.fillHashMap(Reader.readHashMapFile());
         CustomerHashMap.printHashMap();
         
-        while (choice != 7) {
+        while (choice != 8) {
             
             System.out.println("1. About us");
             System.out.println("2. About Bedam Facilities");
             System.out.println("3. Make a booking");
             System.out.println("4. Cancel a booking");
-            System.out.println("5. View add-ons");
-            System.out.println("6. View Contact Information");
-            System.out.println("7. Exit");
+            System.out.println("5. See availability");
+            System.out.println("6. View add-ons");
+            System.out.println("7. View Contact Information");
+            System.out.println("8. Exit");
 
             choice = 0;
 
@@ -77,18 +78,23 @@ public class BedamApp {
 
                 case 4:
                     System.out.println("Cancel booking");
-                    CustomerHashMap.cancelBooking();
+                    //cancelBooking method
                     break;
 
                 case 5:
-                    Reader.viewAddOns();
+                    System.out.println("See Availability");
+                    //show availability
+                    break;
+
+                case 6:
+                    System.out.println("View All Bookings (dw get rid of this later just for testing)");
                     
                     break;
-                case 6:
+                case 7:
                     System.out.println("Loading Contact Information...\n");
                     Reader.contactInformation();
                     break;
-                case 7:
+                case 8:
                     // End Program
                     break;
 

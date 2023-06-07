@@ -184,8 +184,8 @@ public class BedamJFrame extends javax.swing.JFrame {
 
     private void AboutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AboutButtonActionPerformed
         // TODO add your handling code here:
-        
-        BedamJFrame.super.hide();
+        AboutJFrame.main(null);
+        BedamJFrame.super.dispose();
         
     }//GEN-LAST:event_AboutButtonActionPerformed
 

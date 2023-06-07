@@ -1,14 +1,14 @@
 ------------------------------------------------------------------------
 Thank you for booking with Bedam!
 We have your booking details as follows: 
-You are staying for 29 nights.
-Your stay is from 02-02-2024 to 02-03-2024
+You are staying for 5 nights.
+Your stay is from 22-01-2024 to 27-01-2024
 Bathrooms: 1
-Bedrooms: 1
-You have chosen to stay in a room. 
-Towels included, The room is private, Air conditioning included
-Rent Per Night: $135.0
+Bedrooms: 5
+You have chosen to stay in a house. 
+
+Rent Per Night: $240.0
 ------------------------------------------------------------------------
 
-Total rent to pay: 3915.0
-Booking number: 16
+Total rent to pay: 1200.0
+Booking number: 4

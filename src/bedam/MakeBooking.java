@@ -450,7 +450,7 @@ public class MakeBooking {
                         Writer.writeInvoice(b1, checkInDate, checkOutDate, numNightsBooked);
                         customerHashMap.putBooking(b1);
                         bookings.add(b1);
-                        System.out.println(b1.toString());
+                        System.out.println(bookings.toString());
                     }
 
                     break;
@@ -543,7 +543,10 @@ public class MakeBooking {
                         b1.setNumNightsBooked(numNightsBooked);
                         Writer.writeInvoice(b1, checkInDate, checkOutDate, numNightsBooked);
                         customerHashMap.putBooking(b1);
+                        
                         bookings.add(b1);
+                        System.out.println(bookings.toString());
+
                     }
                    
                     break;

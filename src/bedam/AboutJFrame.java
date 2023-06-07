@@ -28,19 +28,21 @@ public class AboutJFrame extends javax.swing.JFrame {
 
         aboutTextArea = new javax.swing.JScrollPane();
         aboutUsText = new javax.swing.JTextArea();
-        aboutTitle = new javax.swing.JLabel();
         backButton = new javax.swing.JButton();
+        titleLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("About");
         setPreferredSize(new java.awt.Dimension(945, 564));
 
         aboutUsText.setEditable(false);
         aboutUsText.setColumns(20);
+        aboutUsText.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         aboutUsText.setRows(5);
-        aboutUsText.setText("test123\n");
+        aboutUsText.setText(Reader.about());
         aboutTextArea.setViewportView(aboutUsText);
-
-        aboutTitle.setText("About us");
+        aboutUsText.setLineWrap(true);
+        aboutUsText.setWrapStyleWord(true);
 
         backButton.setText("Back");
         backButton.addActionListener(new java.awt.event.ActionListener() {
@@ -49,34 +51,38 @@ public class AboutJFrame extends javax.swing.JFrame {
             }
         });
 
+        titleLabel.setFont(new java.awt.Font("Cambria", 0, 36)); // NOI18N
+        titleLabel.setForeground(new java.awt.Color(172, 140, 71));
+        titleLabel.setText("About Us");
+        titleLabel.setRequestFocusEnabled(false);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(446, 446, 446)
-                .addComponent(aboutTitle)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(393, 393, 393)
+                .addComponent(titleLabel)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(189, 189, 189)
+                .addComponent(aboutTextArea, javax.swing.GroupLayout.PREFERRED_SIZE, 555, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(198, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(298, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(aboutTextArea, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(294, 294, 294))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(backButton)
-                        .addGap(417, 417, 417))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(backButton)
+                .addGap(411, 411, 411))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(82, 82, 82)
-                .addComponent(aboutTitle)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 129, Short.MAX_VALUE)
-                .addComponent(aboutTextArea, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(63, 63, 63)
+                .addGap(65, 65, 65)
+                .addComponent(titleLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 51, Short.MAX_VALUE)
+                .addComponent(aboutTextArea, javax.swing.GroupLayout.PREFERRED_SIZE, 304, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(39, 39, 39)
                 .addComponent(backButton)
-                .addGap(54, 54, 54))
+                .addGap(27, 27, 27))
         );
 
         pack();
@@ -85,7 +91,7 @@ public class AboutJFrame extends javax.swing.JFrame {
     private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
         // TODO add your handling code here:
         BedamJFrame.main(null);
-       AboutJFrame.super.dispose();
+        AboutJFrame.super.dispose();
     }//GEN-LAST:event_backButtonActionPerformed
 
     /**
@@ -120,15 +126,15 @@ public class AboutJFrame extends javax.swing.JFrame {
             @Override
             public void run() {
                 new AboutJFrame().setVisible(true);
-                aboutUsText.setText(Reader.about());
+
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JScrollPane aboutTextArea;
-    private javax.swing.JLabel aboutTitle;
     private static javax.swing.JTextArea aboutUsText;
     private javax.swing.JButton backButton;
+    private javax.swing.JLabel titleLabel;
     // End of variables declaration//GEN-END:variables
 }

@@ -186,7 +186,6 @@ public class BedamJFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
         AboutJFrame.main(null);
         BedamJFrame.super.dispose();
-        
     }//GEN-LAST:event_AboutButtonActionPerformed
 
     private void cancelBookingButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelBookingButtonActionPerformed

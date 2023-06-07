@@ -23,7 +23,7 @@ public class Reader
             BufferedReader br = new BufferedReader(about);
             String line = null;
             while ((line = br.readLine()) != null) {
-                output+=line;
+                output+=line+"\n";
             }
             System.out.println();            
             br.close();

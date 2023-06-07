@@ -1,0 +1,14 @@
+------------------------------------------------------------------------
+Thank you for booking with Bedam!
+We have your booking details as follows: 
+You are staying for 25 nights.
+Your stay is from 25-12-2023 to 19-01-2024
+Bathrooms: 2
+Bedrooms: 3
+You have chosen to stay in an apartment. 
+Laundry access included, Parking included, Balcony available
+Rent Per Night: $235.0
+------------------------------------------------------------------------
+
+Total rent to pay: 5875.0
+Booking number: 7

@@ -28,21 +28,29 @@ public class MakeBookingJFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jComboBox1 = new javax.swing.JComboBox<>();
+        accomChoice = new javax.swing.JComboBox<>();
         accomText = new javax.swing.JLabel();
         confirmButton = new javax.swing.JButton();
         titleLabel = new javax.swing.JLabel();
+        monthChoice = new javax.swing.JComboBox<>();
+        dateChoice = new javax.swing.JComboBox<>();
+        Year = new javax.swing.JComboBox<>();
+        accomLabel = new javax.swing.JLabel();
+        yearLabel = new javax.swing.JLabel();
+        monthLabel = new javax.swing.JLabel();
+        dayLabel = new javax.swing.JLabel();
+        backButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Choose an option:", "Room", "Apartment", "House" }));
-        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+        accomChoice.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Choose an option:", "Room", "Apartment", "House" }));
+        accomChoice.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox1ActionPerformed(evt);
+                accomChoiceActionPerformed(evt);
             }
         });
 
-        accomText.setText("~placeholder~");
+        accomText.setText("accomodation text");
         accomText.setVisible(false);
 
         confirmButton.setText("Confirm");
@@ -57,70 +65,175 @@ public class MakeBookingJFrame extends javax.swing.JFrame {
         titleLabel.setText("Make a Booking");
         titleLabel.setRequestFocusEnabled(false);
 
+        monthChoice.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "July", "August", "September", "October", "November", "December" }));
+        monthChoice.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                monthChoiceActionPerformed(evt);
+            }
+        });
+
+        dateChoice.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
+        dateChoice.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                dateChoiceActionPerformed(evt);
+            }
+        });
+
+        Year.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "2023", "2024" }));
+        Year.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                YearActionPerformed(evt);
+            }
+        });
+
+        accomLabel.setText("Accommodation Type:");
+
+        yearLabel.setText("Year:");
+
+        monthLabel.setText("Month:");
+
+        dayLabel.setText("Day:");
+
+        backButton.setText("Back");
+        backButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                backButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(351, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(confirmButton)
-                        .addGap(42, 42, 42))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(titleLabel)
-                        .addGap(349, 349, 349))))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(77, 77, 77)
+                .addComponent(accomText)
+                .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(63, 63, 63)
-                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(72, 72, 72)
+                        .addComponent(accomLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(96, 96, 96)
-                        .addComponent(accomText)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(63, 63, 63)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(backButton)
+                            .addComponent(accomChoice, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 108, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(confirmButton)
+                                .addGap(42, 42, 42))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(titleLabel)
+                                .addGap(349, 349, 349))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(85, 85, 85)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(Year, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(monthChoice, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(dateChoice, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(12, 12, 12)
+                                .addComponent(yearLabel)
+                                .addGap(69, 69, 69)
+                                .addComponent(monthLabel)
+                                .addGap(57, 57, 57)
+                                .addComponent(dayLabel)))
+                        .addContainerGap())))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(60, 60, 60)
                 .addComponent(titleLabel)
-                .addGap(43, 43, 43)
-                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(29, 29, 29)
+                .addGap(10, 10, 10)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(accomLabel)
+                    .addComponent(yearLabel)
+                    .addComponent(monthLabel)
+                    .addComponent(dayLabel))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(accomChoice, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(monthChoice, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(dateChoice, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Year, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(28, 28, 28)
                 .addComponent(accomText)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 263, Short.MAX_VALUE)
-                .addComponent(confirmButton)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 264, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(confirmButton)
+                    .addComponent(backButton))
                 .addGap(35, 35, 35))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+    private void accomChoiceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_accomChoiceActionPerformed
         // TODO add your handling code here:
-        String choice = jComboBox1.getSelectedItem().toString();
-        if (choice == "Room") {
+        String choice = accomChoice.getSelectedItem().toString();
+        if ("Room".equals(choice)) {
             accomText.setVisible(true);
             accomText.setText("You have selected a Room");
-        } else if (choice == "Apartment") {
+        } else if ("Apartment".equals(choice)) {
             accomText.setVisible(true);
             accomText.setText("You have selected an Apartment.");
-        } else if (choice == "House") {
+        } else if ("House".equals(choice)) {
             accomText.setVisible(true);
             accomText.setText("You have selected a House.");
         }
 
-    }//GEN-LAST:event_jComboBox1ActionPerformed
+    }//GEN-LAST:event_accomChoiceActionPerformed
 
     private void confirmButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmButtonActionPerformed
         // TODO add your handling code here:
-        if (JOptionPane.showConfirmDialog(null, "Are you sure", "Confirm Accomodation Type", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION)
-        {
+        if (JOptionPane.showConfirmDialog(null, "Are you sure", "Confirm Accomodation Type", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
             //if yes:
 
         }
     }//GEN-LAST:event_confirmButtonActionPerformed
+
+    private void monthChoiceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_monthChoiceActionPerformed
+        // TODO add your handling code here:
+        String choice = monthChoice.getSelectedItem().toString();
+        if ("January".equals(choice) || "March".equals(choice) || "May".equals(choice) || "July".equals(choice) || "August".equals(choice) || "October".equals(choice) || "December".equals(choice)) {
+            dateChoice.setModel(new javax.swing.DefaultComboBoxModel<>(new String[]{"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31"}));
+
+        } else if ("February".equals(choice)) {
+            dateChoice.setModel(new javax.swing.DefaultComboBoxModel<>(new String[]{"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28"}));
+
+        } else {
+            dateChoice.setModel(new javax.swing.DefaultComboBoxModel<>(new String[]{"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30"}));
+        }
+
+    }//GEN-LAST:event_monthChoiceActionPerformed
+
+    private void dateChoiceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dateChoiceActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_dateChoiceActionPerformed
+
+    private void YearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_YearActionPerformed
+        // TODO add your handling code here:
+        String choice = Year.getSelectedItem().toString();
+        if (choice.equals("2023")) {
+            monthChoice.setModel(new javax.swing.DefaultComboBoxModel<>(new String[]{"July", "August", "September", "October", "November", "December"}));
+        } else {
+            monthChoice.setModel(new javax.swing.DefaultComboBoxModel<>(new String[]{"January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"}));
+        }
+    }//GEN-LAST:event_YearActionPerformed
+
+    private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
+        // TODO add your handling code here:
+        BedamJFrame.main(null);
+        MakeBookingJFrame.super.dispose();
+    }//GEN-LAST:event_backButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -158,9 +271,17 @@ public class MakeBookingJFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> Year;
+    private javax.swing.JComboBox<String> accomChoice;
+    private javax.swing.JLabel accomLabel;
     private javax.swing.JLabel accomText;
+    private javax.swing.JButton backButton;
     private javax.swing.JButton confirmButton;
-    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JComboBox<String> dateChoice;
+    private javax.swing.JLabel dayLabel;
+    private javax.swing.JComboBox<String> monthChoice;
+    private javax.swing.JLabel monthLabel;
     private javax.swing.JLabel titleLabel;
+    private javax.swing.JLabel yearLabel;
     // End of variables declaration//GEN-END:variables
 }

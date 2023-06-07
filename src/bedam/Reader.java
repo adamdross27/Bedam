@@ -90,6 +90,23 @@ public class Reader
         return num;
     }
     
+     public static String viewAddOns() { //This will display the add-ons that are available for each accommodation type.
+         String str = "";
+        try {
+            FileReader addOns = new FileReader("./resources/addOns.txt");  //Finds the txt file in the resources folder
+            BufferedReader br = new BufferedReader(addOns);
+            String line = null;
+            while ((line = br.readLine()) != null) {
+                str+=line+"\n"; //Prints each line from the txt file to the user.
+            }
+            System.out.println();
+            br.close();
+        } catch (IOException e) {
+            System.err.println("Can't read from file...");
+        }
+        return str;
+    }
+    
     public static String readHashMapFile()
     {
         String str = "", line = "";

@@ -130,6 +130,11 @@ public class BedamJFrame extends javax.swing.JFrame {
         addOnsButton.setForeground(new java.awt.Color(255, 255, 255));
         addOnsButton.setText("View add-ons");
         addOnsButton.setPreferredSize(new java.awt.Dimension(230, 35));
+        addOnsButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addOnsButtonActionPerformed(evt);
+            }
+        });
 
         exitButton.setText("Exit");
         exitButton.addActionListener(new java.awt.event.ActionListener() {
@@ -217,7 +222,14 @@ public class BedamJFrame extends javax.swing.JFrame {
     private void contactButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_contactButtonActionPerformed
         // TODO add your handling code here:
         ContactJFrame.main(null);
+        BedamJFrame.super.dispose();
     }//GEN-LAST:event_contactButtonActionPerformed
+
+    private void addOnsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addOnsButtonActionPerformed
+        // TODO add your handling code here:
+        AddOnsJFrame.main(null);
+        BedamJFrame.super.dispose();
+    }//GEN-LAST:event_addOnsButtonActionPerformed
 
     /**
      * @param args the command line arguments

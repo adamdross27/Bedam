@@ -8,12 +8,12 @@ package bedam;
  *
  * @author benr0
  */
-public class ContactJFrame extends javax.swing.JFrame {
+public class AddOnsJFrame extends javax.swing.JFrame {
 
     /**
-     * Creates new form ContactJFrame
+     * Creates new form AddOnsJFrame
      */
-    public ContactJFrame() {
+    public AddOnsJFrame() {
         initComponents();
     }
 
@@ -28,9 +28,8 @@ public class ContactJFrame extends javax.swing.JFrame {
 
         backButton = new javax.swing.JButton();
         titleLabel = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
+        aboutTextArea = new javax.swing.JScrollPane();
+        aboutUsText = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -43,54 +42,44 @@ public class ContactJFrame extends javax.swing.JFrame {
 
         titleLabel.setFont(new java.awt.Font("Cambria", 0, 36)); // NOI18N
         titleLabel.setForeground(new java.awt.Color(172, 140, 71));
-        titleLabel.setText("Contact Information");
+        titleLabel.setText("Our Add ons");
         titleLabel.setRequestFocusEnabled(false);
 
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText(Reader.contactInformation()[3]);
-        jLabel1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-
-        jLabel2.setText(Reader.contactInformation()[2]);
-        jLabel2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-
-        jLabel3.setText(Reader.contactInformation()[4]);
-        jLabel3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        aboutUsText.setEditable(false);
+        aboutUsText.setColumns(20);
+        aboutUsText.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        aboutUsText.setRows(5);
+        aboutUsText.setText(Reader.about());
+        aboutTextArea.setViewportView(aboutUsText);
+        aboutUsText.setLineWrap(true);
+        aboutUsText.setWrapStyleWord(true);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(307, 307, 307)
-                .addComponent(titleLabel)
-                .addContainerGap(326, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(backButton)
+                .addGap(411, 411, 411))
+            .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel2)
-                            .addComponent(backButton))
-                        .addGap(405, 405, 405))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel3)
-                        .addGap(316, 316, 316))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addGap(385, 385, 385))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(189, 189, 189)
+                        .addComponent(aboutTextArea, javax.swing.GroupLayout.PREFERRED_SIZE, 555, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(368, 368, 368)
+                        .addComponent(titleLabel)))
+                .addContainerGap(198, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(88, Short.MAX_VALUE)
+                .addContainerGap(67, Short.MAX_VALUE)
                 .addComponent(titleLabel)
-                .addGap(78, 78, 78)
-                .addComponent(jLabel2)
-                .addGap(45, 45, 45)
-                .addComponent(jLabel1)
-                .addGap(34, 34, 34)
-                .addComponent(jLabel3)
-                .addGap(165, 165, 165)
+                .addGap(49, 49, 49)
+                .addComponent(aboutTextArea, javax.swing.GroupLayout.PREFERRED_SIZE, 304, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(39, 39, 39)
                 .addComponent(backButton)
                 .addGap(27, 27, 27))
         );
@@ -101,7 +90,7 @@ public class ContactJFrame extends javax.swing.JFrame {
     private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
         // TODO add your handling code here:
         BedamJFrame.main(null);
-        ContactJFrame.super.dispose();
+        AddOnsJFrame.super.dispose();
     }//GEN-LAST:event_backButtonActionPerformed
 
     /**
@@ -121,29 +110,28 @@ public class ContactJFrame extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ContactJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AddOnsJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ContactJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AddOnsJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ContactJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AddOnsJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ContactJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AddOnsJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ContactJFrame().setVisible(true);
+                new AddOnsJFrame().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JScrollPane aboutTextArea;
+    private static javax.swing.JTextArea aboutUsText;
     private javax.swing.JButton backButton;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel titleLabel;
     // End of variables declaration//GEN-END:variables
 }

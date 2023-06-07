@@ -53,22 +53,23 @@ public class Reader
         }
         
         // Room Information method
-        public static void bedamFacilities()
+        public static String bedamFacilities()
         {
+            String str= "";
             try {
                 FileReader bedamFacilities = new FileReader("./resources/bedamFacilities.txt");
                 BufferedReader br = new BufferedReader(bedamFacilities);
                 String line = "";
                 while((line = br.readLine()) != null)
                 {
-                    System.out.println(line);
+                    str+=line+"\n";
                 }
-                System.out.println();
                 br.close();
             } catch (IOException e)
             {
                 System.out.println("Can't read from file...");
             }
+            return str;
         }
 
     public static int readBookingNum() {

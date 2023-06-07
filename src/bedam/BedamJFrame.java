@@ -95,6 +95,11 @@ public class BedamJFrame extends javax.swing.JFrame {
         facilitiesButton.setForeground(new java.awt.Color(255, 255, 255));
         facilitiesButton.setText("About our facilities");
         facilitiesButton.setPreferredSize(new java.awt.Dimension(230, 35));
+        facilitiesButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                facilitiesButtonActionPerformed(evt);
+            }
+        });
 
         contactButton.setBackground(new java.awt.Color(172, 140, 71));
         contactButton.setForeground(new java.awt.Color(255, 255, 255));
@@ -196,6 +201,13 @@ public class BedamJFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
         BedamJFrame.super.dispose();
     }//GEN-LAST:event_exitButtonActionPerformed
+
+    private void facilitiesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_facilitiesButtonActionPerformed
+        // TODO add your handling code here:
+        AboutFacilitiesJFrame.main(null);
+        BedamJFrame.super.dispose();
+        
+    }//GEN-LAST:event_facilitiesButtonActionPerformed
 
     /**
      * @param args the command line arguments

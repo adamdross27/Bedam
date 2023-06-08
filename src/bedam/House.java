@@ -9,9 +9,9 @@ package bedam;
 
 public class House extends Accommodation {
 
-    private boolean hasPool; //User is asked if they want each of these for an extra $$ per night
-    private boolean hasYard;
-    private boolean hasGarage;
+    private static boolean hasPool; //User is asked if they want each of these for an extra $$ per night
+    private static boolean hasYard;
+    private static boolean hasGarage;
 
     public House(int bedrooms, int bathrooms, double rentPerNight) {
         super(bedrooms, bathrooms, rentPerNight);
@@ -69,28 +69,28 @@ public class House extends Accommodation {
         return string;
     }
 
-    public boolean isHasPool() {
+    public static boolean isHasPool() {
         return hasPool;
     }
 
-    public void setHasPool(boolean hasPool) {
-        this.hasPool = hasPool;
+    public static void setHasPool(boolean hasPool) {
+        House.hasPool = hasPool;
     }
 
-    public boolean isHasYard() {
+    public static boolean isHasYard() {
         return hasYard;
     }
 
-    public void setHasYard(boolean hasYard) {
-        this.hasYard = hasYard;
+    public static void setHasYard(boolean hasYard) {
+        House.hasYard = hasYard;
     }
 
-    public boolean isHasGarage() {
+    public static boolean isHasGarage() {
         return hasGarage;
     }
 
-    public void setHasGarage(boolean hasGarage) {
-        this.hasGarage = hasGarage;
+    public static void setHasGarage(boolean hasGarage) {
+        House.hasGarage = hasGarage;
     }
 
 }

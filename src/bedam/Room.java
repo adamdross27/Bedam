@@ -9,9 +9,9 @@ package bedam;
 
 public class Room extends Accommodation {
 
-    private boolean hasTowels;
-    private boolean isPrivateRoom;
-    private boolean hasAirConditioning;
+    private static boolean hasTowels;
+    private static boolean isPrivateRoom;
+    private static boolean hasAirConditioning;
 
     public Room(int bedrooms, int bathrooms, double rentPerNight) {
         super(1, 1, rentPerNight);
@@ -72,28 +72,28 @@ public class Room extends Accommodation {
         return string;
     }
 
-    public boolean isHasTowels() {
+    public static boolean isHasTowels() {
         return hasTowels;
     }
 
-    public void setHasTowels(boolean hasTowels) {
-        this.hasTowels = hasTowels;
+    public static void setHasTowels(boolean hasTowels) {
+        Room.hasTowels = hasTowels;
     }
 
-    public boolean isIsPrivateRoom() {
+    public static boolean isIsPrivateRoom() {
         return isPrivateRoom;
     }
 
-    public void setIsPrivateRoom(boolean isPrivateRoom) {
-        this.isPrivateRoom = isPrivateRoom;
+    public static void setIsPrivateRoom(boolean isPrivateRoom) {
+        Room.isPrivateRoom = isPrivateRoom;
     }
 
-    public boolean isHasAirConditioning() {
+    public static boolean isHasAirConditioning() {
         return hasAirConditioning;
     }
 
-    public void setHasAirConditioning(boolean hasAirConditioning) {
-        this.hasAirConditioning = hasAirConditioning;
+    public static void setHasAirConditioning(boolean hasAirConditioning) {
+        Room.hasAirConditioning = hasAirConditioning;
     }
 
 }

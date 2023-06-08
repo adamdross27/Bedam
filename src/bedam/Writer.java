@@ -55,6 +55,71 @@ public class Writer {
             Room accomRoom = (Room) b1.getAccommodation();
             toWrite += accomRoom.toString();
         }
+<<<<<<< Updated upstream
+=======
+        
+        
+        double rentPerNight = 0.0;
+        rentPerNight = accom.calculateRentPerNight(nights);
+        accom.setRentPerNight(nights);
+        rentPerNight = accom.calculateRentPerNight(nights);
+        
+        
+        if(b1.getLocationStr().equalsIgnoreCase("room"))
+        {
+            rentPerNight = nights * 100;
+            if(Room.isHasTowels())
+            {
+                rentPerNight += 10;
+            }
+            if(Room.isIsPrivateRoom())
+            {
+                rentPerNight += 45;
+            }
+            if(Room.isHasAirConditioning())
+            {
+                rentPerNight += 20;
+            }
+            accom.setRentPerNight(rentPerNight);
+        }
+        
+        else if (b1.getLocationStr().equalsIgnoreCase("apartment"))
+        {
+            rentPerNight = nights * ((b1.getAccommodation().getBedrooms() * 35) + b1.getAccommodation().getBathrooms() * 15);
+            if(Apartment.isHasLaundry())
+            {
+                rentPerNight += 20;
+            }
+            if(Apartment.isHasParking())
+            {
+                rentPerNight += 50;
+            }
+            if(Apartment.isHasBalcony())
+            {
+                rentPerNight += 30;
+            }
+            accom.setRentPerNight(rentPerNight);
+        }
+        else if (b1.getLocationStr().equalsIgnoreCase("house"))
+        {
+            rentPerNight = nights * ((b1.getAccommodation().getBedrooms() * 45) + b1.getAccommodation().getBathrooms() * 15);
+            
+            if(House.isHasPool())
+            {
+                rentPerNight += 50;
+            }
+            if(House.isHasYard())
+            {
+                rentPerNight += 15;
+            }
+            if(House.isHasGarage())
+            {
+                rentPerNight += 20;
+            }
+            accom.setRentPerNight(rentPerNight);
+        }
+
+>>>>>>> Stashed changes
         toWrite += "------------------------------------------------------------------------\n";
         toWrite += "\nTotal rent to pay: " + b1.getAccommodation().getRentPerNight() * nights +"\n";
         toWrite += "Booking number: " + b1.getBookingNum();

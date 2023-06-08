@@ -318,7 +318,7 @@ public class MakeBooking {
                         b1.setLocationID(locationID);
                         b1.setLocationStr("House");
                         b1.setNumNightsBooked(numNightsBooked);
-                        Writer.writeInvoice(b1, checkInDate, checkOutDate, numNightsBooked);
+                        Writer.writeInvoice(b1, checkInDate, checkOutDate, numNightsBooked, h1);
                         customerHashMap.putBooking(b1);
                         bookings.add(b1);
                     }
@@ -447,7 +447,7 @@ public class MakeBooking {
                         b1.setLocationID(locationID);
                         b1.setLocationStr("Apartment");
                         b1.setNumNightsBooked(numNightsBooked);
-                        Writer.writeInvoice(b1, checkInDate, checkOutDate, numNightsBooked);
+                        Writer.writeInvoice(b1, checkInDate, checkOutDate, numNightsBooked, a1);
                         customerHashMap.putBooking(b1);
                         bookings.add(b1);
                         System.out.println(bookings.toString());
@@ -541,7 +541,7 @@ public class MakeBooking {
                         b1.setLocationID(locationID);
                         b1.setLocationStr("Room");
                         b1.setNumNightsBooked(numNightsBooked);
-                        Writer.writeInvoice(b1, checkInDate, checkOutDate, numNightsBooked);
+                        Writer.writeInvoice(b1, checkInDate, checkOutDate, numNightsBooked, r1);
                         customerHashMap.putBooking(b1);
                         
                         bookings.add(b1);

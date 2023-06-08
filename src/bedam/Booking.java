@@ -35,6 +35,19 @@ public class Booking {
         Writer.writeNextBookingNum();
   
     }
+    
+    
+    
+    public Booking(String locationStr1, Accommodation accom, int numNightsBooked1, LocalDate checkInDate1, LocalDate checkOutDate1, int readBookingNum) throws IOException
+    {
+        this.locationStr = locationStr1;
+        this.accommodation = accom;
+        this.numNightsBooked = numNightsBooked1;
+        this.checkInDate = checkInDate1;
+        this.checkOutDate = checkOutDate1;
+        this.bookingNum = readBookingNum;
+        Writer.writeNextBookingNum();
+    }
 
     public Accommodation getAccommodation() 
     {

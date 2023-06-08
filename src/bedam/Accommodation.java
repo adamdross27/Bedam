@@ -21,6 +21,12 @@ public abstract class Accommodation
         this.rentPerNight = 0.0; //Temporary 
     }
     
+    public Accommodation(String bedroomStr, String bathroomStr)
+    {
+        this.bedrooms = Integer.parseInt(bedroomStr);
+        this.bathrooms = Integer.parseInt(bathroomStr);
+    }
+    
     public abstract double calculateRentPerNight(int numOfNights);
     
     public abstract void printDetails();

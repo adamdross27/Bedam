@@ -18,7 +18,7 @@ import java.time.format.DateTimeFormatter;
 public class Writer {
     // Write invoice method
 
-    public static void writeInvoice(Booking b1, LocalDate start, LocalDate end, int nights) {
+    public static void writeInvoice(Booking b1, LocalDate start, LocalDate end, int nights, Accommodation accom) {
         File file = new File("./resources/invoice.txt");
         String toWrite = "";
 
@@ -55,9 +55,8 @@ public class Writer {
             Room accomRoom = (Room) b1.getAccommodation();
             toWrite += accomRoom.toString();
         }
-<<<<<<< Updated upstream
-=======
-        
+
+
         
         double rentPerNight = 0.0;
         rentPerNight = accom.calculateRentPerNight(nights);
@@ -119,7 +118,7 @@ public class Writer {
             accom.setRentPerNight(rentPerNight);
         }
 
->>>>>>> Stashed changes
+
         toWrite += "------------------------------------------------------------------------\n";
         toWrite += "\nTotal rent to pay: " + b1.getAccommodation().getRentPerNight() * nights +"\n";
         toWrite += "Booking number: " + b1.getBookingNum();

@@ -91,4 +91,10 @@ public class Apartment extends Accommodation {
     public void setHasBalcony(boolean hasBalcony) {
         this.hasBalcony = hasBalcony;
     }
+    
+    @Override
+    public Accommodation getAccommodation()
+    {
+        return this;
+    }
 }

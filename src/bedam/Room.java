@@ -96,4 +96,10 @@ public class Room extends Accommodation {
         this.hasAirConditioning = hasAirConditioning;
     }
 
+    
+    @Override
+    public Accommodation getAccommodation()
+    {
+        return this;
+    }
 }

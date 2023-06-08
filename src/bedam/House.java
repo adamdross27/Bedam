@@ -94,4 +94,9 @@ public class House extends Accommodation {
         this.hasGarage = hasGarage;
     }
 
+    @Override
+    public Accommodation getAccommodation()
+    {
+        return this;
+    }
 }

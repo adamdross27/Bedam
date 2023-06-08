@@ -18,7 +18,7 @@ import java.time.format.DateTimeFormatter;
 public class Writer {
     // Write invoice method
 
-    public static void writeInvoice(Booking b1, LocalDate start, LocalDate end, int nights) {
+    public static void writeInvoice(Booking b1, LocalDate start, LocalDate end, int nights, Accommodation accom) {
         File file = new File("./resources/invoice.txt");
         String toWrite = "";
 
@@ -56,8 +56,31 @@ public class Writer {
             Room accomRoom = (Room) b1.getAccommodation();
             toWrite += accomRoom.toString();
         }
+        
+        
+        double rentPerNight = 0.0;
+        rentPerNight = accom.calculateRentPerNight(nights);
+        accom.setRentPerNight(nights);
+        rentPerNight = accom.calculateRentPerNight(nights);
+        
+        
+        if(b1.getLocationStr().equalsIgnoreCase("room"))
+        {
+            accom.setRentPerNight(nights * 100);
+        }
+        else if (b1.getLocationStr().equalsIgnoreCase("apartment"))
+        {
+            rentPerNight = nights * ((b1.getAccommodation().getBedrooms() * 35) + b1.getAccommodation().getBathrooms() * 15);
+            accom.setRentPerNight(rentPerNight);
+        }
+        else if (b1.getLocationStr().equalsIgnoreCase("house"))
+        {
+            rentPerNight = nights * ((b1.getAccommodation().getBedrooms() * 45) + b1.getAccommodation().getBathrooms() * 15);
+            accom.setRentPerNight(rentPerNight);
+        }
+
         toWrite += "------------------------------------------------------------------------\n";
-        toWrite += "\nTotal rent to pay: " + b1.getAccommodation().getRentPerNight() * nights +"\n";
+        toWrite += "\nTotal rent to pay: " + accom.getRentPerNight() +"\n";
         toWrite += "Booking number: " + b1.getBookingNum();
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(file))) {
             writer.write(toWrite);

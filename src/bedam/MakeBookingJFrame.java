@@ -343,6 +343,8 @@ public class MakeBookingJFrame extends javax.swing.JFrame {
             accom.setBathrooms(bathroomNum);
             accom.setBedrooms(bedroomNum);
             
+            
+            
             try {
                 booking = new Booking(locationStr, accom, numNightsBooked, checkInDate, checkOutDate, Reader.readBookingNum());
             } catch (IOException ex) {
@@ -350,8 +352,9 @@ public class MakeBookingJFrame extends javax.swing.JFrame {
             }
             double rentPerNight = booking.getAccommodation().getRentPerNight() * numNightsBooked;
             accom.setRentPerNight(rentPerNight);
-           
-            Writer.writeInvoice(booking, checkInDate, checkOutDate, numNightsBooked);
+            BedamJFrame.main(null);
+            MakeBookingJFrame.super.dispose();
+            Writer.writeInvoice(booking, checkInDate, checkOutDate, numNightsBooked, accom);
         }
     }//GEN-LAST:event_confirmButtonActionPerformed
 

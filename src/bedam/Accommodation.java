@@ -65,7 +65,9 @@ public abstract class Accommodation
      * @return the rentPerNight
      */
     public double getRentPerNight() {
-        return rentPerNight;
+        
+        return this.rentPerNight;
+        
     }
 
     /**
@@ -75,5 +77,9 @@ public abstract class Accommodation
         this.rentPerNight = rentPerNight;
     }
     
+    public Accommodation getAccommodation()
+    {
+        return this;
+    }
     
 }

@@ -101,7 +101,7 @@ public class Writer {
         }
         else if (b1.getLocationStr().equalsIgnoreCase("house"))
         {
-            rentPerNight = nights * ((b1.getAccommodation().getBedrooms() * 45) + b1.getAccommodation().getBathrooms() * 15);
+            rentPerNight = nights * ((b1.getAccommodation().getBedrooms() * 45) + (b1.getAccommodation().getBathrooms() * 15));
             
             if(House.isHasPool())
             {
@@ -120,7 +120,7 @@ public class Writer {
 
 
         toWrite += "------------------------------------------------------------------------\n";
-        toWrite += "\nTotal rent to pay: " + b1.getAccommodation().getRentPerNight() * nights +"\n";
+        toWrite += "\nTotal rent to pay: " + b1.getAccommodation().getRentPerNight()+"\n";
         toWrite += "Booking number: " + b1.getBookingNum();
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(file))) {
             writer.write(toWrite);

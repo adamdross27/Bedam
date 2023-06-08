@@ -8,4 +8,4 @@ Bedrooms: 1
 ------------------------------------------------------------------------
 
 Total rent to pay: 100.0
-Booking number: 84
+Booking number: 105

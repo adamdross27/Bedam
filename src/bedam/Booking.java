@@ -33,10 +33,7 @@ public class Booking {
         this.locationStr = locationStr;
         this.bookingNum = bookingNum;
         Writer.writeNextBookingNum();
-  
     }
-    
-    
     
     public Booking(String locationStr1, Accommodation accom, int numNightsBooked1, LocalDate checkInDate1, LocalDate checkOutDate1, int readBookingNum) throws IOException
     {

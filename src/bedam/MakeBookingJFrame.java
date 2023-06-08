@@ -345,11 +345,11 @@ public class MakeBookingJFrame extends javax.swing.JFrame {
             accom.setBathrooms(bathroomNum);
             accom.setBedrooms(bedroomNum);
             Booking booking = null;
-            try {
-                booking = new Booking(locationStr, accom, numNightsBooked, checkInDate, checkOutDate, Reader.readBookingNum());
-            } catch (IOException ex) {
-                Logger.getLogger(MakeBookingJFrame.class.getName()).log(Level.SEVERE, null, ex);
-            }
+//            try {
+//                booking = new Booking(locationStr, accom, numNightsBooked, checkInDate, checkOutDate, Reader.readBookingNum());
+//            } catch (IOException ex) {
+//                Logger.getLogger(MakeBookingJFrame.class.getName()).log(Level.SEVERE, null, ex);
+//            }
 
             
             

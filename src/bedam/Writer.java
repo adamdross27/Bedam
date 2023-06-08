@@ -44,6 +44,7 @@ public class Writer {
             toWrite += "You have chosen to stay in a house. \n";
             House accomHouse = (House) b1.getAccommodation();
             toWrite += accomHouse.toString();
+            b1.getAccommodation().setRentPerNight(accomHouse.calculateRentPerNight(nights));
         }
         if (b1.getAccommodation().getClass() == Apartment.class) {
             toWrite += "You have chosen to stay in an apartment. \n";

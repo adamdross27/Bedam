@@ -14,8 +14,8 @@ public class Room extends Accommodation {
     private boolean hasAirConditioning;
 
     public Room(int bedrooms, int bathrooms, double rentPerNight) {
-        super(1, 1, rentPerNight);
-     
+        super(1, 1, 100);
+        //this.accomName = "Room";
     }
 
     @Override

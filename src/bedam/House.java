@@ -15,6 +15,7 @@ public class House extends Accommodation {
 
     public House(int bedrooms, int bathrooms, double rentPerNight) {
         super(bedrooms, bathrooms, rentPerNight);
+     //   accomName="House";
     }
 
     @Override

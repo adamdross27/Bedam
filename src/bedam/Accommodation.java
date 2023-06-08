@@ -13,11 +13,19 @@ public abstract class Accommodation
     private int bedrooms;
     private int bathrooms;
     private double rentPerNight;
+   // public String accomName;
     
     public Accommodation(int bedrooms, int bathrooms, double rentPerNight)
     {
         this.bedrooms = bedrooms;
         this.bathrooms = bathrooms;
+        this.rentPerNight = 0.0; //Temporary 
+    }
+    
+    public Accommodation(String bedrooms, String bathrooms)
+    {
+        this.bedrooms = Integer.parseInt(bedrooms);
+        this.bathrooms = Integer.parseInt(bathrooms);
         this.rentPerNight = 0.0; //Temporary 
     }
     

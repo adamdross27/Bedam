@@ -8,8 +8,14 @@
 package bedam;
 
 import java.io.IOException;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
+import java.util.Date;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class Booking {
 
@@ -28,12 +34,29 @@ public class Booking {
         this.locationID = locationID;
         this.accommodation = accommodation;
         this.numNightsBooked = numNightsBooked;
-        this.checkInDate = checkInDate;
+        this.checkInDate = checkInDate;  //Used for CLI
         this.checkOutDate = checkOutDate;
         this.locationStr = locationStr;
         this.bookingNum = bookingNum;
         Writer.writeNextBookingNum();
-  
+    }
+    
+    public Booking(String locationStr, Accommodation accommodation, int numNightsBooked, LocalDate checkInDate, LocalDate checkOutDate, int bookingNum) throws IOException
+    {
+        //fine
+        this.locationStr = locationStr;
+        //needs new accom
+        this.accommodation = accommodation;
+        this.numNightsBooked = numNightsBooked;   //Used for GUI
+        this.checkInDate = checkInDate;
+        this.checkOutDate = checkOutDate;
+        this.bookingNum = bookingNum;
+        Writer.writeNextBookingNum();
+    }
+    
+    public Booking()
+    {
+        
     }
 
     public Accommodation getAccommodation() 
@@ -180,5 +203,4 @@ public class Booking {
         Booking b1 = new Booking(location, accom, numNightsBooked, checkInDate, checkOutDate, locationStr, bookingNum);
         return b1;
     }
-    
 }

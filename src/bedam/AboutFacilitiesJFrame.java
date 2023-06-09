@@ -2,6 +2,13 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
+/**
+ * Program Design and Construction
+ * Ben Rogers - 21145117
+ * Adam Ross - 21151208
+ * Assignment Two - Hotel Booking System
+ *
+ */
 package bedam;
 
 /**
@@ -40,8 +47,9 @@ public class AboutFacilitiesJFrame extends javax.swing.JFrame {
             }
         });
 
-        titleLabel.setFont(new java.awt.Font("Cambria", 0, 36)); // NOI18N
+        titleLabel.setFont(new java.awt.Font("Cambria", 1, 36)); // NOI18N
         titleLabel.setForeground(new java.awt.Color(172, 140, 71));
+        titleLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         titleLabel.setText("About Our Facilities");
         titleLabel.setRequestFocusEnabled(false);
 
@@ -63,14 +71,10 @@ public class AboutFacilitiesJFrame extends javax.swing.JFrame {
                 .addComponent(backButton)
                 .addGap(411, 411, 411))
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(196, 196, 196)
-                        .addComponent(aboutTextArea, javax.swing.GroupLayout.PREFERRED_SIZE, 555, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(310, 310, 310)
-                        .addComponent(titleLabel)))
+                .addGap(196, 196, 196)
+                .addComponent(aboutTextArea, javax.swing.GroupLayout.PREFERRED_SIZE, 555, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(193, Short.MAX_VALUE))
+            .addComponent(titleLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -90,7 +94,7 @@ public class AboutFacilitiesJFrame extends javax.swing.JFrame {
     private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
         // TODO add your handling code here:
         BedamJFrame.main(null);
-        AboutFacilitiesJFrame.super.dispose();
+        AboutFacilitiesJFrame.super.dispose();  //This is a back button and if pressed it will remove this frame and call the main frame
     }//GEN-LAST:event_backButtonActionPerformed
 
     /**
@@ -123,7 +127,7 @@ public class AboutFacilitiesJFrame extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new AboutFacilitiesJFrame().setVisible(true);
+                new AboutFacilitiesJFrame().setVisible(true); //Setting the JFrame visibility to true so the user can see
             }
         });
     }

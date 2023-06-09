@@ -2,24 +2,24 @@
  * Program Design and Construction
  * Ben Rogers - 21145117
  * Adam Ross - 21151208
- * Assignment One - Hotel Booking System
+ * Assignment Two - Hotel Booking System
  *
  */
 package bedam;
 
-public class Room extends Accommodation {
+public class Room extends Accommodation { //Subclass of accommodation 
 
     private static boolean hasTowels;
-    private static boolean isPrivateRoom;
+    private static boolean isPrivateRoom; //Add on variables
     private static boolean hasAirConditioning;
 
     public Room(int bedrooms, int bathrooms, double rentPerNight) {
-        super(1, 1, rentPerNight);
+        super(1, 1, rentPerNight); //Constructor set to 1 bed/bath due to room being small
      
     }
 
     @Override
-    public double calculateRentPerNight(int numOfNights) {
+    public double calculateRentPerNight(int numOfNights) { //Calculate method
         double rent = 0.0;
         rent += (double) getBedrooms() * 45.0;
         rent += (double) getBathrooms() * 15.0;

@@ -2,12 +2,12 @@
  * Program Design and Construction
  * Ben Rogers - 21145117
  * Adam Ross - 21151208
- * Assignment One - Hotel Booking System
+ * Assignment Two - Hotel Booking System
  *
  */
 package bedam;
 
-public class Apartment extends Accommodation {
+public class Apartment extends Accommodation { //Subclass of Accommodation
 
     private static boolean hasLaundry;
     private static boolean hasParking; //Asks the user if they want each of these for extra $ per night
@@ -24,7 +24,7 @@ public class Apartment extends Accommodation {
         rent += (double) getBathrooms() * 15.0;
         if (hasLaundry) {
             rent += 20;
-        }
+        }                           //Used to calculate the Rent Per Night depending on Boolean Values
         if (hasParking) {
             rent += 50;
         }
@@ -42,7 +42,7 @@ public class Apartment extends Accommodation {
             System.out.print("Laundry access included, ");
         }
         if (hasParking) {
-            System.out.print("Parking included, ");
+            System.out.print("Parking included, "); //Details to be printed if true
         }
         if (hasBalcony) {
             System.out.print("Balcony available");
@@ -72,7 +72,7 @@ public class Apartment extends Accommodation {
         return hasLaundry;
     }
 
-    public static void setHasLaundry(boolean hasLaundry) {
+    public static void setHasLaundry(boolean hasLaundry) { //get and set methods
         Apartment.hasLaundry = hasLaundry;
     }
 

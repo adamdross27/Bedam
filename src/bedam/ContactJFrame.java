@@ -2,6 +2,13 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
+/**
+ * Program Design and Construction
+ * Ben Rogers - 21145117
+ * Adam Ross - 21151208
+ * Assignment Two - Hotel Booking System
+ *
+ */
 package bedam;
 
 /**
@@ -14,7 +21,7 @@ public class ContactJFrame extends javax.swing.JFrame {
      * Creates new form ContactJFrame
      */
     public ContactJFrame() {
-        initComponents();
+        initComponents(); //Initialises the components
     }
 
     /**
@@ -41,8 +48,9 @@ public class ContactJFrame extends javax.swing.JFrame {
             }
         });
 
-        titleLabel.setFont(new java.awt.Font("Cambria", 0, 36)); // NOI18N
+        titleLabel.setFont(new java.awt.Font("Cambria", 1, 36)); // NOI18N
         titleLabel.setForeground(new java.awt.Color(172, 140, 71));
+        titleLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         titleLabel.setText("Contact Information");
         titleLabel.setRequestFocusEnabled(false);
 
@@ -60,24 +68,25 @@ public class ContactJFrame extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(307, 307, 307)
-                .addComponent(titleLabel)
-                .addContainerGap(326, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(303, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel2)
-                            .addComponent(backButton))
+                        .addComponent(jLabel2)
                         .addGap(405, 405, 405))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel3)
-                        .addGap(316, 316, 316))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jLabel1)
-                        .addGap(385, 385, 385))))
+                        .addGap(385, 385, 385))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jLabel3)
+                        .addGap(316, 316, 316))))
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(titleLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addGap(32, 32, 32)
+                .addComponent(backButton, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -90,9 +99,9 @@ public class ContactJFrame extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addGap(34, 34, 34)
                 .addComponent(jLabel3)
-                .addGap(165, 165, 165)
+                .addGap(161, 161, 161)
                 .addComponent(backButton)
-                .addGap(27, 27, 27))
+                .addGap(31, 31, 31))
         );
 
         pack();
@@ -100,7 +109,7 @@ public class ContactJFrame extends javax.swing.JFrame {
 
     private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
         // TODO add your handling code here:
-        BedamJFrame.main(null);
+        BedamJFrame.main(null); //Back button will return user to the main menu and dispose this frame.
         ContactJFrame.super.dispose();
     }//GEN-LAST:event_backButtonActionPerformed
 
@@ -134,7 +143,7 @@ public class ContactJFrame extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ContactJFrame().setVisible(true);
+                new ContactJFrame().setVisible(true); //Sets visibility to true 
             }
         });
     }

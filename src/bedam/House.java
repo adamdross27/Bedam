@@ -2,24 +2,24 @@
  * Program Design and Construction
  * Ben Rogers - 21145117
  * Adam Ross - 21151208
- * Assignment One - Hotel Booking System
+ * Assignment Two - Hotel Booking System
  *
  */
 package bedam;
 
-public class House extends Accommodation {
+public class House extends Accommodation { //Subclass of Accommodation
 
     private static boolean hasPool; //User is asked if they want each of these for an extra $$ per night
     private static boolean hasYard;
     private static boolean hasGarage;
 
     public House(int bedrooms, int bathrooms, double rentPerNight) {
-        super(bedrooms, bathrooms, rentPerNight);
+        super(bedrooms, bathrooms, rentPerNight); //Constrctor that invokes super
     }
 
     @Override
-    public double calculateRentPerNight(int numOfNights) {
-        //just a rough kinda vibe of a price 'formula'?
+    public double calculateRentPerNight(int numOfNights) { 
+        // Method to calculate the rent per night
         double rent = 0.0;
         rent += (double) getBedrooms() * 45.0;
         rent += (double) getBathrooms() * 15.0;
@@ -38,11 +38,10 @@ public class House extends Accommodation {
     }
 
     @Override
-    //could use for write class possibly?
     public void printDetails() {
         System.out.println("Details...");
         if (hasPool) {
-            System.out.print("Pool available, ");
+            System.out.print("Pool available, "); //Details to be printed for user
         }
         if (hasYard) {
             System.out.print("Yard Available, ");
@@ -60,7 +59,7 @@ public class House extends Accommodation {
             string+=("Pool available, ");
         }
         if (hasYard) {
-            string+=("Yard Available, ");
+            string+=("Yard Available, "); //ToString method
         }
         if (hasGarage) {
             string+=("Garage Available");
@@ -69,7 +68,7 @@ public class House extends Accommodation {
         return string;
     }
 
-    public static boolean isHasPool() {
+    public static boolean isHasPool() { //Get and Set methods for add ons
         return hasPool;
     }
 

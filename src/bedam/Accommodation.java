@@ -1,8 +1,8 @@
 /**
- * Program Design and Construction 
- * Ben Rogers - 21145117 
+ * Program Design and Construction
+ * Ben Rogers - 21145117
  * Adam Ross - 21151208
- * Assignment One - Hotel Booking System
+ * Assignment Two - Hotel Booking System
  *
  */
 
@@ -11,20 +11,26 @@ package bedam;
 public abstract class Accommodation 
 {
     private int bedrooms;
-    private int bathrooms;
+    private int bathrooms; //Variables
     private double rentPerNight;
     
     public Accommodation(int bedrooms, int bathrooms, double rentPerNight)
     {
         this.bedrooms = bedrooms;
         this.bathrooms = bathrooms;
-        this.rentPerNight = 0.0; //Temporary 
+        this.rentPerNight = 0.0; //Constructor 
     }
     
     public Accommodation(String bedroomStr, String bathroomStr)
     {
-        this.bedrooms = Integer.parseInt(bedroomStr);
+        this.bedrooms = Integer.parseInt(bedroomStr); //Constructor used for JDBC
         this.bathrooms = Integer.parseInt(bathroomStr);
+    }
+    
+    public Accommodation(int bedrooms, int bathrooms)
+    {
+        this.bedrooms = bedrooms; //Another constructor with no rentPerNight initialisation
+        this.bathrooms = bathrooms;
     }
     
     public abstract double calculateRentPerNight(int numOfNights);
@@ -41,7 +47,7 @@ public abstract class Accommodation
     /**
      * @param bedrooms the bedrooms to set
      */
-    public void setBedrooms(int bedrooms) {
+    public void setBedrooms(int bedrooms) { //Get and Set methods 
         this.bedrooms = bedrooms;
     }
 

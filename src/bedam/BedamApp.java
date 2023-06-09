@@ -2,11 +2,14 @@
  * Program Design and Construction
  * Ben Rogers - 21145117
  * Adam Ross - 21151208
- * Assignment One - Hotel Booking System
+ * Assignment Two - Hotel Booking System
  *
  */
 package bedam;
 
+import bedam.CustomerHashMap;
+import bedam.MakeBooking;
+import bedam.Reader;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.InputMismatchException;

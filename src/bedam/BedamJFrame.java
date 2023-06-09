@@ -2,6 +2,13 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
+/**
+ * Program Design and Construction
+ * Ben Rogers - 21145117
+ * Adam Ross - 21151208
+ * Assignment Two - Hotel Booking System
+ *
+ */
 package bedam;
 
 /**
@@ -14,7 +21,7 @@ public class BedamJFrame extends javax.swing.JFrame {
      * Creates new form BedamJFrame
      */
     public BedamJFrame() {
-        initComponents();
+        initComponents(); //Initialising the components from the Swing
     }
 
     /**
@@ -76,12 +83,14 @@ public class BedamJFrame extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Bedam App");
 
-        titleLabel.setFont(new java.awt.Font("Cambria", 0, 36)); // NOI18N
+        titleLabel.setFont(new java.awt.Font("Cambria", 1, 36)); // NOI18N
         titleLabel.setForeground(new java.awt.Color(172, 140, 71));
+        titleLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         titleLabel.setText("Welcome to Bedam");
         titleLabel.setRequestFocusEnabled(false);
 
         AboutButton.setBackground(new java.awt.Color(172, 140, 71));
+        AboutButton.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         AboutButton.setForeground(new java.awt.Color(255, 255, 255));
         AboutButton.setText("About us");
         AboutButton.setPreferredSize(new java.awt.Dimension(230, 35));
@@ -92,6 +101,7 @@ public class BedamJFrame extends javax.swing.JFrame {
         });
 
         facilitiesButton.setBackground(new java.awt.Color(172, 140, 71));
+        facilitiesButton.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         facilitiesButton.setForeground(new java.awt.Color(255, 255, 255));
         facilitiesButton.setText("About our facilities");
         facilitiesButton.setPreferredSize(new java.awt.Dimension(230, 35));
@@ -102,6 +112,7 @@ public class BedamJFrame extends javax.swing.JFrame {
         });
 
         contactButton.setBackground(new java.awt.Color(172, 140, 71));
+        contactButton.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         contactButton.setForeground(new java.awt.Color(255, 255, 255));
         contactButton.setText("View contact information");
         contactButton.setPreferredSize(new java.awt.Dimension(230, 35));
@@ -112,6 +123,7 @@ public class BedamJFrame extends javax.swing.JFrame {
         });
 
         makeBookingButton.setBackground(new java.awt.Color(172, 140, 71));
+        makeBookingButton.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         makeBookingButton.setForeground(new java.awt.Color(255, 255, 255));
         makeBookingButton.setText("Make a booking");
         makeBookingButton.setPreferredSize(new java.awt.Dimension(230, 35));
@@ -122,6 +134,7 @@ public class BedamJFrame extends javax.swing.JFrame {
         });
 
         cancelBookingButton.setBackground(new java.awt.Color(172, 140, 71));
+        cancelBookingButton.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         cancelBookingButton.setForeground(new java.awt.Color(255, 255, 255));
         cancelBookingButton.setText("Cancel a booking");
         cancelBookingButton.setPreferredSize(new java.awt.Dimension(230, 35));
@@ -132,6 +145,7 @@ public class BedamJFrame extends javax.swing.JFrame {
         });
 
         addOnsButton.setBackground(new java.awt.Color(172, 140, 71));
+        addOnsButton.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         addOnsButton.setForeground(new java.awt.Color(255, 255, 255));
         addOnsButton.setText("View add-ons");
         addOnsButton.setPreferredSize(new java.awt.Dimension(230, 35));
@@ -153,29 +167,26 @@ public class BedamJFrame extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(245, 245, 245)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(addOnsButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(makeBookingButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(AboutButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(228, 228, 228)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(makeBookingButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(AboutButton, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(addOnsButton, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(contactButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(contactButton, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(facilitiesButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(cancelBookingButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(facilitiesButton, javax.swing.GroupLayout.DEFAULT_SIZE, 250, Short.MAX_VALUE)
+                            .addComponent(cancelBookingButton, javax.swing.GroupLayout.DEFAULT_SIZE, 250, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 222, Short.MAX_VALUE)))
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(titleLabel)
-                        .addGap(309, 309, 309))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(exitButton)
-                        .addGap(420, 420, 420))))
+                .addContainerGap(433, Short.MAX_VALUE)
+                .addComponent(exitButton, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(407, 407, 407))
+            .addComponent(titleLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -184,19 +195,19 @@ public class BedamJFrame extends javax.swing.JFrame {
                 .addComponent(titleLabel)
                 .addGap(56, 56, 56)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(AboutButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(facilitiesButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(AboutButton, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(facilitiesButton, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(makeBookingButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cancelBookingButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(makeBookingButton, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cancelBookingButton, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(addOnsButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(contactButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(exitButton)
-                .addContainerGap(207, Short.MAX_VALUE))
+                    .addComponent(addOnsButton, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(contactButton, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 171, Short.MAX_VALUE)
+                .addComponent(exitButton, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(20, 20, 20))
         );
 
         pack();
@@ -205,43 +216,49 @@ public class BedamJFrame extends javax.swing.JFrame {
     private void AboutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AboutButtonActionPerformed
         // TODO add your handling code here:
         AboutJFrame.main(null);
-        BedamJFrame.super.dispose();
+        BedamJFrame.super.dispose(); //When clicked it will call the AboutJFrame main method which will show the frame to user
     }//GEN-LAST:event_AboutButtonActionPerformed
 
+    public void getAboutButtonActionPerformed()
+    {
+        AboutJFrame.main(null);
+        BedamJFrame.super.dispose();
+    }
+    
     private void cancelBookingButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelBookingButtonActionPerformed
         // TODO add your handling code here:
-        CancelBookingJFrame.main(null);
+        CancelBookingJFrame.main(null); //When clicked it will call the CancelBookingJFrame main method which will show the frame to user
         BedamJFrame.super.dispose();
     }//GEN-LAST:event_cancelBookingButtonActionPerformed
 
     private void exitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitButtonActionPerformed
         // TODO add your handling code here:
-        BedamJFrame.super.dispose();
+        BedamJFrame.super.dispose(); //This will end the program when this button is clicked
     }//GEN-LAST:event_exitButtonActionPerformed
 
     private void facilitiesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_facilitiesButtonActionPerformed
         // TODO add your handling code here:
-        AboutFacilitiesJFrame.main(null);
+        AboutFacilitiesJFrame.main(null); //When clicked it will call the AboutOurFacilities main method which will show the frame to user
         BedamJFrame.super.dispose();
 
     }//GEN-LAST:event_facilitiesButtonActionPerformed
 
     private void contactButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_contactButtonActionPerformed
         // TODO add your handling code here:
-        ContactJFrame.main(null);
+        ContactJFrame.main(null); //When clicked it will call the ContactUs main method which will show the frame to user
         BedamJFrame.super.dispose();
     }//GEN-LAST:event_contactButtonActionPerformed
 
     private void addOnsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addOnsButtonActionPerformed
         // TODO add your handling code here:
-        AddOnsJFrame.main(null);
+        AddOnsJFrame.main(null); ////When clicked it will call the Show Add Ons main method which will show the frame to user
         BedamJFrame.super.dispose();
     }//GEN-LAST:event_addOnsButtonActionPerformed
 
     private void makeBookingButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_makeBookingButtonActionPerformed
 
         // TODO add your handling code here:
-        MakeBookingJFrame.main(null);
+        MakeBookingJFrame.main(null); //When clicked it will call the Make Booking main method which will show the frame to user
         BedamJFrame.super.dispose();
     }//GEN-LAST:event_makeBookingButtonActionPerformed
 

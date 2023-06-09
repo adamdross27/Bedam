@@ -1,8 +1,8 @@
 /**
- * Program Design and Construction 
- * Ben Rogers - 21145117 
+ * Program Design and Construction
+ * Ben Rogers - 21145117
  * Adam Ross - 21151208
- * Assignment One - Hotel Booking System
+ * Assignment Two - Hotel Booking System
  *
  */
 package bedam;
@@ -19,7 +19,7 @@ public class Reader
   public static String about() {
            String output = "";
         try {
-            FileReader about = new FileReader("./resources/aboutBedam.txt");
+            FileReader about = new FileReader("./resources/aboutBedam.txt"); //Gets the aboutBedam.txt and will read the txt and convert into a string to be printed to the page.
             BufferedReader br = new BufferedReader(about);
             String line = null;
             while ((line = br.readLine()) != null) {
@@ -34,7 +34,7 @@ public class Reader
     }
         
         
-        public static String[] contactInformation() 
+        public static String[] contactInformation() //Gets the contact info from the txt and converts to string array to print to user.
         {
             String str[] = new String[5];
             try {
@@ -76,7 +76,7 @@ public class Reader
             return str;
         }
 
-    public static int readBookingNum() {
+    public static int readBookingNum() { //Reads the booking number from file (only for administrative use, not user use)
         int num = 0;
         String numString = "";
         try {
@@ -107,7 +107,7 @@ public class Reader
         return str;
     }
     
-    public static String readHashMapFile()
+    public static String readHashMapFile() //Reads the hashmap information on the txt
     {
         String str = "", line = "";
         try {
@@ -127,5 +127,4 @@ public class Reader
     }
 
         
-        // Read Invoice Method
 }

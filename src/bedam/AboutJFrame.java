@@ -2,6 +2,13 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
+/**
+ * Program Design and Construction
+ * Ben Rogers - 21145117
+ * Adam Ross - 21151208
+ * Assignment Two - Hotel Booking System
+ *
+ */
 package bedam;
 
 /**
@@ -14,7 +21,7 @@ public class AboutJFrame extends javax.swing.JFrame {
      * Creates new form AboutJFrame
      */
     public AboutJFrame() {
-        initComponents();
+        initComponents(); //Initalises the components from Swing
     }
 
     /**
@@ -51,7 +58,7 @@ public class AboutJFrame extends javax.swing.JFrame {
             }
         });
 
-        titleLabel.setFont(new java.awt.Font("Cambria", 0, 36)); // NOI18N
+        titleLabel.setFont(new java.awt.Font("Cambria", 1, 36)); // NOI18N
         titleLabel.setForeground(new java.awt.Color(172, 140, 71));
         titleLabel.setText("About Us");
         titleLabel.setRequestFocusEnabled(false);
@@ -91,7 +98,7 @@ public class AboutJFrame extends javax.swing.JFrame {
     private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
         // TODO add your handling code here:
         BedamJFrame.main(null);
-        AboutJFrame.super.dispose();
+        AboutJFrame.super.dispose(); //When back button is pressed it returns user to main menu and destroys this frame.
     }//GEN-LAST:event_backButtonActionPerformed
 
     /**
@@ -125,7 +132,7 @@ public class AboutJFrame extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             @Override
             public void run() {
-                new AboutJFrame().setVisible(true);
+                new AboutJFrame().setVisible(true); //Main method will set the visibility to true.
 
             }
         });

@@ -29,18 +29,11 @@
               <EmptySpace min="-2" pref="411" max="-2" attributes="0"/>
           </Group>
           <Group type="102" attributes="0">
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="189" max="-2" attributes="0"/>
-                      <Component id="aboutTextArea" min="-2" pref="555" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="368" max="-2" attributes="0"/>
-                      <Component id="titleLabel" min="-2" max="-2" attributes="0"/>
-                  </Group>
-              </Group>
+              <EmptySpace min="-2" pref="189" max="-2" attributes="0"/>
+              <Component id="aboutTextArea" min="-2" pref="555" max="-2" attributes="0"/>
               <EmptySpace pref="198" max="32767" attributes="0"/>
           </Group>
+          <Component id="titleLabel" alignment="1" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
@@ -69,11 +62,12 @@
     <Component class="javax.swing.JLabel" name="titleLabel">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Cambria" size="36" style="0"/>
+          <Font name="Cambria" size="36" style="1"/>
         </Property>
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="47" green="8c" red="ac" type="rgb"/>
         </Property>
+        <Property name="horizontalAlignment" type="int" value="0"/>
         <Property name="text" type="java.lang.String" value="Our Add ons"/>
         <Property name="requestFocusEnabled" type="boolean" value="false"/>
       </Properties>
@@ -99,6 +93,8 @@
           </Properties>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="aboutUsText.setLineWrap(true);&#xa;                aboutUsText.setWrapStyleWord(true);"/>
+            <AuxValue name="JavaCodeGenerator_CreateCodePre" type="java.lang.String" value="Reader.viewAddOns();"/>
+            <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="Reader.viewAddOns();"/>
             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="10"/>
           </AuxValues>
         </Component>

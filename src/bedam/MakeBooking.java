@@ -2,7 +2,7 @@
  * Program Design and Construction
  * Ben Rogers - 21145117
  * Adam Ross - 21151208
- * Assignment One - Hotel Booking System
+ * Assignment Two - Hotel Booking System
  *
  */
 package bedam;
@@ -18,12 +18,12 @@ import java.util.ArrayList;
 public class MakeBooking {
 
     
-    public static Booking newBooking() throws IOException {
+    public static Booking newBooking() throws IOException { //Returns a booking
         Scanner scan = new Scanner(System.in);
         
         int locationID = 0;
         Accommodation accommodation = null;
-        int numBedrooms = 0;
+        int numBedrooms = 0; //Variables for a booking
         int numBathrooms = 0;
         int numNightsBooked = 0;
         LocalDate checkInDate = null;
@@ -31,26 +31,24 @@ public class MakeBooking {
         String locationStr = "";
     
 
-        ArrayList<Booking> bookings = new ArrayList<>();
+        ArrayList<Booking> bookings = new ArrayList<>(); //Initialisng the ArrayList
 
-        CustomerHashMap customerHashMap = new CustomerHashMap();
+        CustomerHashMap customerHashMap = new CustomerHashMap(); //Intialising a CustomerHashMap Object
         
-        Booking b1 = new Booking(locationID, accommodation, numNightsBooked, checkInDate, checkOutDate, locationStr, Reader.readBookingNum());
-        
+        Booking b1 = new Booking(locationID, accommodation, numNightsBooked, checkInDate, checkOutDate, locationStr, Reader.readBookingNum()); 
+        //Initialising a booking with default values
         boolean validInput = false;
-        Person p1;
 
-        //location
         boolean nextStep = false;
         OUTER:
         while (nextStep != true) {
             System.out.println("To make a booking, please type 1, 2, 3, or 4 to match the corresponding accommodation type.");
             System.out.println("1. House");
-            System.out.println("2. Apartment");
+            System.out.println("2. Apartment"); //User is prompted to enter one of the folloiwng
             System.out.println("3. Room");
             System.out.println("4. Go back to menu");
             validInput = false;
-            while (!validInput) {
+            while (!validInput) { //While loop to ensure valid input
                 try {
                     locationID = scan.nextInt();
                     if (locationID >= 1 && locationID <= 4) {
@@ -59,20 +57,20 @@ public class MakeBooking {
                         System.out.println("Please input an integer between 1 and 4.");
                     }
                 } catch (InputMismatchException e) {
-                    System.out.println("That was not a recognisable response, please try again.");
+                    System.out.println("That was not a recognisable response, please try again."); //Error message to try again
                     scan.nextLine();
                 }
 
             }
             System.out.println();
-            switch (locationID) {
+            switch (locationID) { //Message saying they have chosen to rent a ____ or have gone back to main menu
                 case 1:
                     System.out.println("You have chosen to rent a House.\n");
                     b1.setLocationStr("House");
                     break;
 
                 case 2:
-                    System.out.println("You have chosen to rent an Apartment.\n");
+                    System.out.println("You have chosen to rent an Apartment.\n"); 
                     b1.setLocationStr("Apartment");
                     break;
 
@@ -87,11 +85,11 @@ public class MakeBooking {
                     break OUTER;
 
                 default:
-                    System.out.println("Sorry, that isn't an option. Try again.\n");
+                    System.out.println("Sorry, that isn't an option. Try again.\n"); //If inappropriate answer is entered
             }
 
             validInput = false;
-            System.out.println("Are you happy with your choice? (Y/N, press x to cancel)");
+            System.out.println("Are you happy with your choice? (Y/N, press x to cancel)"); //Option for user to change
             char confirm = 'n';
             while (!validInput) {
                 confirm = scan.next().charAt(0);
@@ -130,7 +128,7 @@ public class MakeBooking {
             while (!validInput) {
                 try {
                     numNightsBooked = scan.nextInt();
-                    if (numNightsBooked >= 1 && numNightsBooked <= 30) {
+                    if (numNightsBooked >= 1 && numNightsBooked <= 30) { //User must enter answer between 1 and 30 to proceed
                         validInput = true;
                     } else {
                         throw new InputMismatchException("Invalid input. Please enter an integer between 1 and 30.");
@@ -201,13 +199,12 @@ public class MakeBooking {
             switch (locationID) {
                 
                 case 1:
-                    House h1 = new House(0, 0, 0); // so i chucked this in to see if i could get it fully working but idrk how to set h1's hasPool and stuff, mr GPT said somehting with super(); but idk, it sorta looks like it might work the way i did it
+                    House h1 = new House(0, 0, 0); 
                     System.out.println("How many bedrooms would you like your rented house to have? Please choose from 1 to 5 bedrooms.");
                     while (!validInput) {
                         try {
-
                             numBedrooms = scan.nextInt();
-                            if (numBedrooms >= 1 && numBedrooms <= 5) {
+                            if (numBedrooms >= 1 && numBedrooms <= 5) { //Prompted to enter answer between 1 and 5
                                 validInput = true;
                                 scan.nextLine(); //So the next question doesn't use return key as the input for the answer.
                             } else {
@@ -225,7 +222,7 @@ public class MakeBooking {
                     while (!validInput) {
                         try {
                             numBathrooms = scan.nextInt();
-                            if (numBathrooms >= 1 && numBathrooms <= 5) {
+                            if (numBathrooms >= 1 && numBathrooms <= 5) { //Prompted for 1 and 5
                                 validInput = true;
                                 scan.nextLine(); //So the next question doesn't use return key as the input for the answer.
                             } else {
@@ -240,7 +237,7 @@ public class MakeBooking {
 
                     validInput = false;
                     char responseChar = 'n';
-                    System.out.println("Would you like your rented House to have a pool? (Y/N)");
+                    System.out.println("Would you like your rented House to have a pool? (Y/N)"); //3 yes or no questions for add ons
                     while (!validInput) {
                         try {
                             houseResponse = scan.next();
@@ -307,20 +304,20 @@ public class MakeBooking {
                         h1.setHasGarage(false);
                     }
 
-                    Accommodation house = h1; // could do like this?
-                    confirm = ConfirmBooking.confirmBooking(house, numBedrooms, numBathrooms, numNightsBooked, checkInDate, checkOutDate);
+                    Accommodation house = h1;
+                    confirm = ConfirmBooking.confirmBooking(house, numBedrooms, numBathrooms, numNightsBooked, checkInDate, checkOutDate);  //Calls the confirm booking method
                     if(confirm)
                     {   
 
                         b1.setAccommodation(house);
                         b1.setCheckInDate(checkInDate);
                         b1.setCheckOutDate(checkOutDate);
-                        b1.setLocationID(locationID);
+                        b1.setLocationID(locationID);  //Assigns the variables
                         b1.setLocationStr("House");
                         b1.setNumNightsBooked(numNightsBooked);
                         Writer.writeInvoice(b1, checkInDate, checkOutDate, numNightsBooked, h1);
-                        customerHashMap.putBooking(b1);
-                        bookings.add(b1);
+                        customerHashMap.putBooking(b1); //Adds to hashmap
+                        bookings.add(b1); //Adds to ArrayList
                     }
 
                     break;
@@ -334,7 +331,7 @@ public class MakeBooking {
                     while (!validInput) {
                         try {
                             numBedrooms = scan.nextInt();
-                            if (numBedrooms >= 1 && numBedrooms <= 3) {
+                            if (numBedrooms >= 1 && numBedrooms <= 3) { //Answer between 1 and 3 to proceed
                                 validInput = true;
                                 scan.nextLine(); //So the next question doesn't use return key as the input for the answer.
                             } else {
@@ -355,7 +352,7 @@ public class MakeBooking {
                     while (!validInput) {
                         try {
                             numBathrooms = scan.nextInt();
-                            if (numBathrooms >= 1 && numBathrooms <= 2) {
+                            if (numBathrooms >= 1 && numBathrooms <= 2) { //Answer between 1 and 2 to proceed
                                 validInput = true;
                                 scan.nextLine(); //So the next question doesn't use return key as the input for the answer.
                             } else {
@@ -370,7 +367,7 @@ public class MakeBooking {
 
                     validInput = false;
                     char needLaundry = 'n';
-                    System.out.println("Would you like your apartment to include laundry access? (Y/N)");
+                    System.out.println("Would you like your apartment to include laundry access? (Y/N)"); // 3 yes or no answer questions for add ons
                     while (!validInput) {
                         try {
                             apartmentResponse = scan.next();
@@ -437,7 +434,7 @@ public class MakeBooking {
                     }
 
                     Accommodation apartment = a1; // could do like this?
-                    confirm = ConfirmBooking.confirmBooking(apartment, numBedrooms, numBathrooms, numNightsBooked, checkInDate, checkOutDate);
+                    confirm = ConfirmBooking.confirmBooking(apartment, numBedrooms, numBathrooms, numNightsBooked, checkInDate, checkOutDate); //Calls confirm booking method which returns a boolean
                     if(confirm)
                     {   
                         
@@ -464,7 +461,7 @@ public class MakeBooking {
 
                     validInput = false;
                     char needTowels = 'n';
-                    System.out.println("Would you like your room to come with towels? (Y/N)");
+                    System.out.println("Would you like your room to come with towels? (Y/N)"); //3 yes or no questions for add ons with validators
                     while (!validInput) {
                         try {
                             roomResponse = scan.next();
@@ -538,7 +535,7 @@ public class MakeBooking {
                         b1.setAccommodation(room);
                         b1.setCheckInDate(checkInDate);
                         b1.setCheckOutDate(checkOutDate);
-                        b1.setLocationID(locationID);
+                        b1.setLocationID(locationID); //If user does confirm the booking
                         b1.setLocationStr("Room");
                         b1.setNumNightsBooked(numNightsBooked);
                         Writer.writeInvoice(b1, checkInDate, checkOutDate, numNightsBooked, r1);
@@ -555,7 +552,7 @@ public class MakeBooking {
                     System.out.println("Returning to main menu!!!!!!!!!!!!");
 
                 default:
-                    System.out.println("Error has occurred!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"); // DELETE THIS BEFORE HANDING IN!!! ONLY USED FOR CHECKING RANDOM ERRORS!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+                    System.out.println("Error has occurred!");
             }
 
         }
@@ -563,9 +560,4 @@ public class MakeBooking {
         
         return b1;
     }
-    
-
-
-
-
 }

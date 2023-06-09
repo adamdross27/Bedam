@@ -1,8 +1,8 @@
 /**
- * Program Design and Construction 
- * Ben Rogers - 21145117 
+ * Program Design and Construction
+ * Ben Rogers - 21145117
  * Adam Ross - 21151208
- * Assignment One - Hotel Booking System
+ * Assignment Two - Hotel Booking System
  *
  */
 package bedam;
@@ -13,11 +13,11 @@ import java.util.Scanner;
 
 public class Booking {
 
-    private static int nextBookingNum = 1;
+    private static int nextBookingNum = 1; //Used to keep count of the booking numbers
     private Accommodation accommodation;
     private int locationID;
     private int numNightsBooked;
-    private LocalDate checkInDate;
+    private LocalDate checkInDate; //Variables
     private LocalDate checkOutDate;
     private String locationStr;
     private int bookingNum;
@@ -29,7 +29,7 @@ public class Booking {
         this.accommodation = accommodation;
         this.numNightsBooked = numNightsBooked;
         this.checkInDate = checkInDate;
-        this.checkOutDate = checkOutDate;
+        this.checkOutDate = checkOutDate; //Constructor
         this.locationStr = locationStr;
         this.bookingNum = bookingNum;
         Writer.writeNextBookingNum();
@@ -40,13 +40,18 @@ public class Booking {
         this.locationStr = locationStr1;
         this.accommodation = accom;
         this.numNightsBooked = numNightsBooked1;
-        this.checkInDate = checkInDate1;
+        this.checkInDate = checkInDate1; //2nd Constructor
         this.checkOutDate = checkOutDate1;
         this.bookingNum = readBookingNum;
         Writer.writeNextBookingNum();
     }
 
-    public Accommodation getAccommodation() 
+    public Booking() 
+    {
+        //Default constructor
+    }
+
+    public Accommodation getAccommodation()  //Get and Set methods
     {
         return accommodation;
     }
@@ -128,7 +133,7 @@ public class Booking {
         String output = "\n";
         output += "Accommodation Type: " + this.getLocationStr()+"\n";
         output += "Number of Nights Booked: " + this.numNightsBooked+"\n";
-        output += "Check In Date: " + this.checkInDate+"\n";
+        output += "Check In Date: " + this.checkInDate+"\n"; //ToString method
         output += "Check Out Date: " + this.checkOutDate+"\n";
         output += "Number of Bedrooms: " + this.accommodation.getBedrooms()+"\n";
         output += "Number of Bathrooms: " + this.accommodation.getBathrooms() +"\n";
@@ -146,7 +151,7 @@ public class Booking {
         output += this.locationID+"~";
         output += this.numNightsBooked+"~";
         output += this.checkInDate+"~";
-        output += this.checkOutDate+"~";
+        output += this.checkOutDate+"~"; //Used to print onto the hashmap
         output += this.accommodation.getBedrooms()+"~";
         output += this.accommodation.getBathrooms() +"~";
         output += this.accommodation.getRentPerNight() +"~";
@@ -165,7 +170,7 @@ public class Booking {
         int location = Integer.parseInt(parts[0]);
         int numNightsBooked = Integer.parseInt(parts[1]);
         LocalDate checkInDate = LocalDate.parse(parts[2]);
-        LocalDate checkOutDate = LocalDate.parse(parts[3]);
+        LocalDate checkOutDate = LocalDate.parse(parts[3]); //Converts the string into a booking
         int bedrooms = Integer.parseInt(parts[4]);
         int bathrooms = Integer.parseInt(parts[5]);
         double rentPerNight = Double.parseDouble(parts[6]);

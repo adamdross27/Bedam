@@ -2,6 +2,13 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
+/**
+ * Program Design and Construction
+ * Ben Rogers - 21145117
+ * Adam Ross - 21151208
+ * Assignment Two - Hotel Booking System
+ *
+ */
 package bedam;
 
 import java.time.LocalDate;
@@ -32,21 +39,21 @@ public class ConfirmBooking
         {
             try {
 
-                houseResponse = scan.next();
-                responseChar = Character.toLowerCase(houseResponse.charAt(0));
-                if (responseChar == 'y' || responseChar == 'n') 
+                houseResponse = scan.next(); //Scans the user input
+                responseChar = Character.toLowerCase(houseResponse.charAt(0)); //Converts to lowercase of first letter
+                if (responseChar == 'y' || responseChar == 'n') //Checks it is a 'y' or 'n'
                 {
-                    validInput = true;
+                    validInput = true; //Answer is accepted
                 } 
                 else 
                 {
-                    throw new InputMismatchException("Invalid input. Please enter 'Y' or 'N'.");
+                    throw new InputMismatchException("Invalid input. Please enter 'Y' or 'N'."); //Error message for user
                 }
             } catch (InputMismatchException e) 
             {
                 System.out.println(e.getMessage());
             }
-            if(responseChar == 'y' || responseChar == 'Y')
+            if(responseChar == 'y' || responseChar == 'Y') //If yes
             {
                 double rentPerNight = accommodation.calculateRentPerNight(numNightsBooked) / numNightsBooked;
                 accommodation.setBedrooms(numBedrooms);
@@ -54,14 +61,14 @@ public class ConfirmBooking
                 accommodation.setRentPerNight(rentPerNight);
                 System.out.println("Your total to pay for your "+ numNightsBooked+" night visit at Bedam is:");
                 System.out.println("Rent Per Night: $"+ accommodation.getRentPerNight());
-                System.out.println("Number of Nights Booked: "+ numNightsBooked);
+                System.out.println("Number of Nights Booked: "+ numNightsBooked); // Confirms the user's order for them and displays details
                 System.out.println("Total: $"+ accommodation.getRentPerNight() + " * " + numNightsBooked);
                 System.out.println("= $"+ accommodation.getRentPerNight() * numNightsBooked);
                 
             }
             else if(responseChar == 'n' || responseChar == 'n')
             {
-                System.out.println("Your booking has been cancelled!");
+                System.out.println("Your booking has been cancelled!"); //Booking is discarded
                 return false;
             }
         }

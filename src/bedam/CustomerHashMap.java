@@ -2,6 +2,13 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
+/**
+ * Program Design and Construction
+ * Ben Rogers - 21145117
+ * Adam Ross - 21151208
+ * Assignment Two - Hotel Booking System
+ *
+ */
 package bedam;
 
 import java.io.BufferedReader;
@@ -17,22 +24,22 @@ import java.util.Scanner;
  */
 public class CustomerHashMap 
 {
-    static final Map<Integer, Booking> customerHashMap = new HashMap<>(); 
+    static final Map<Integer, Booking> customerHashMap = new HashMap<>(); //Hashmap declared
     
     
     public void putBooking(Booking booking)
     {
-        int bookingNum = booking.getBookingNum();
+        int bookingNum = booking.getBookingNum(); //puts booking into hashmap and calls the printBookingToFile method
         Writer.printBookingToFile(bookingNum, booking);
         
-        customerHashMap.put(bookingNum, booking);  //Might not need this if saving to txt file
+        customerHashMap.put(bookingNum, booking);  
 
     }
     
     public void askForBookingNum()
     {
         Scanner scan = new Scanner(System.in);
-        System.out.println("Please enter your booking number: ");
+        System.out.println("Please enter your booking number: ");//Asks user for booking number
         int userBookingNum = scan.nextInt();
         
         boolean bookingNumExists = false;
@@ -43,7 +50,7 @@ public class CustomerHashMap
             {
                 String[] parts = line.split(",");                                       //POTENTIALLY MOVE THIS TO THE READER CLASS????
                 if(parts.length == 2 && parts[0].equals(userBookingNum))
-                {
+                { //This while loop checks if the booking number exists in the txt file that permanently stores bookings.
                     bookingNumExists = true;
                     break;
                 }
@@ -70,7 +77,7 @@ public class CustomerHashMap
         return customerHashMap.containsKey(name);
     }
     
-    public static void fillHashMap(String str)
+    public static void fillHashMap(String str) //This method gets the hashmap details from the txt and then puts those into the hashmap so it can be added to
     {
         try {
             BufferedReader reader = new BufferedReader(new FileReader("./resources/GuestInformation.txt"));
@@ -97,7 +104,7 @@ public class CustomerHashMap
         
     }
     
-    public static void printHashMap()
+    public static void printHashMap() //Prints the hashmap (used for testing)
     {
   //      System.out.println(customerHashMap.size());
         for(Map.Entry<Integer, Booking> entry : customerHashMap.entrySet())

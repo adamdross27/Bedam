@@ -2,6 +2,13 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
+/**
+ * Program Design and Construction
+ * Ben Rogers - 21145117
+ * Adam Ross - 21151208
+ * Assignment Two - Hotel Booking System
+ *
+ */
 package bedam;
 
 /**
@@ -29,6 +36,7 @@ public class AddOnsJFrame extends javax.swing.JFrame {
         backButton = new javax.swing.JButton();
         titleLabel = new javax.swing.JLabel();
         aboutTextArea = new javax.swing.JScrollPane();
+        Reader.viewAddOns();
         aboutUsText = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -40,11 +48,13 @@ public class AddOnsJFrame extends javax.swing.JFrame {
             }
         });
 
-        titleLabel.setFont(new java.awt.Font("Cambria", 0, 36)); // NOI18N
+        titleLabel.setFont(new java.awt.Font("Cambria", 1, 36)); // NOI18N
         titleLabel.setForeground(new java.awt.Color(172, 140, 71));
+        titleLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         titleLabel.setText("Our Add ons");
         titleLabel.setRequestFocusEnabled(false);
 
+        Reader.viewAddOns();
         aboutUsText.setEditable(false);
         aboutUsText.setColumns(20);
         aboutUsText.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
@@ -63,14 +73,10 @@ public class AddOnsJFrame extends javax.swing.JFrame {
                 .addComponent(backButton)
                 .addGap(411, 411, 411))
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(189, 189, 189)
-                        .addComponent(aboutTextArea, javax.swing.GroupLayout.PREFERRED_SIZE, 555, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(368, 368, 368)
-                        .addComponent(titleLabel)))
+                .addGap(189, 189, 189)
+                .addComponent(aboutTextArea, javax.swing.GroupLayout.PREFERRED_SIZE, 555, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(198, Short.MAX_VALUE))
+            .addComponent(titleLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -89,7 +95,7 @@ public class AddOnsJFrame extends javax.swing.JFrame {
 
     private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
         // TODO add your handling code here:
-        BedamJFrame.main(null);
+        BedamJFrame.main(null); //Back button will return user to the main menu and destroy this frame.
         AddOnsJFrame.super.dispose();
     }//GEN-LAST:event_backButtonActionPerformed
 
@@ -123,14 +129,14 @@ public class AddOnsJFrame extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new AddOnsJFrame().setVisible(true);
+                new AddOnsJFrame().setVisible(true); //Calls this frame to be visible for user
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JScrollPane aboutTextArea;
-    private static javax.swing.JTextArea aboutUsText;
+    private javax.swing.JTextArea aboutUsText;
     private javax.swing.JButton backButton;
     private javax.swing.JLabel titleLabel;
     // End of variables declaration//GEN-END:variables

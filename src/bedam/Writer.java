@@ -2,7 +2,7 @@
  * Program Design and Construction
  * Ben Rogers - 21145117
  * Adam Ross - 21151208
- * Assignment One - Hotel Booking System
+ * Assignment Two - Hotel Booking System
  *
  */
 package bedam;
@@ -19,20 +19,18 @@ public class Writer {
     // Write invoice method
 
     public static void writeInvoice(Booking b1, LocalDate start, LocalDate end, int nights, Accommodation accom) {
-        File file = new File("./resources/invoice.txt");
+        File file = new File("./resources/invoice.txt");   //This is the method that prints the invoice to a txt file for the user to access
         String toWrite = "";
 
-        toWrite += "------------------------------------------------------------------------\n"; //should be longest length now
+        toWrite += "------------------------------------------------------------------------\n"; 
         toWrite += "Thank you for booking with Bedam!\n";
         toWrite += "We have your booking details as follows: \n";
-//        toWrite += "Your booking is saved under the name: "+ p1.getName() +"\n";
         toWrite += "You are staying for " + nights + " nights.\n";
         
         DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
         
         toWrite += "Your stay is from "+start.format(dateFormatter) + " to " + end.format(dateFormatter)+"\n";
-        //not sure why but room class doesnt have the correct amount of rooms or bathrooms
-        if (b1.getAccommodation().getClass() == Room.class) {
+        if (b1.getAccommodation().getClass() == Room.class) { //Writes the number of bed/bathrooms selected by the user for each accommodation type
             toWrite += "Bathrooms: 1\n";
             toWrite += "Bedrooms: 1\n";
 
@@ -55,16 +53,14 @@ public class Writer {
             Room accomRoom = (Room) b1.getAccommodation();
             toWrite += accomRoom.toString();
         }
-
-
         
         double rentPerNight = 0.0;
         rentPerNight = accom.calculateRentPerNight(nights);
         accom.setRentPerNight(nights);
-        rentPerNight = accom.calculateRentPerNight(nights);
+        rentPerNight = accom.calculateRentPerNight(nights); //Setting the rent per night value
         
         
-        if(b1.getLocationStr().equalsIgnoreCase("room"))
+        if(b1.getLocationStr().equalsIgnoreCase("room")) //If it is a room, and will check if add on prices are to be added on
         {
             rentPerNight = nights * 100;
             if(Room.isHasTowels())
@@ -82,7 +78,7 @@ public class Writer {
             accom.setRentPerNight(rentPerNight);
         }
         
-        else if (b1.getLocationStr().equalsIgnoreCase("apartment"))
+        else if (b1.getLocationStr().equalsIgnoreCase("apartment")) //If apartment and checks for beds/baths/add ons to be calculated
         {
             rentPerNight = nights * ((b1.getAccommodation().getBedrooms() * 35) + b1.getAccommodation().getBathrooms() * 15);
             if(Apartment.isHasLaundry())
@@ -99,7 +95,7 @@ public class Writer {
             }
             accom.setRentPerNight(rentPerNight);
         }
-        else if (b1.getLocationStr().equalsIgnoreCase("house"))
+        else if (b1.getLocationStr().equalsIgnoreCase("house")) ////If house and checks for beds/baths/add ons to be calculated
         {
             rentPerNight = nights * ((b1.getAccommodation().getBedrooms() * 45) + (b1.getAccommodation().getBathrooms() * 15));
             
@@ -120,7 +116,7 @@ public class Writer {
 
 
         toWrite += "------------------------------------------------------------------------\n";
-        toWrite += "\nTotal rent to pay: " + b1.getAccommodation().getRentPerNight()+"\n";
+        toWrite += "\nTotal rent to pay: " + b1.getAccommodation().getRentPerNight()+"\n"; //Total rent to pay
         toWrite += "Booking number: " + b1.getBookingNum();
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(file))) {
             writer.write(toWrite);
@@ -130,7 +126,7 @@ public class Writer {
 
         //open the file for user to see
         try {
-            Desktop.getDesktop().open(file);
+            Desktop.getDesktop().open(file); //Opens the file for the user to their screen directly.
         } catch (IOException ex) {
             System.out.println("IO Exception");
         }
@@ -139,7 +135,7 @@ public class Writer {
 
     //Special request method (e.g. extra snacks)
     //List of Names of previous guests
-    public static void printBookingToFile(int bookingNum, Booking booking)
+    public static void printBookingToFile(int bookingNum, Booking booking) //Prints the information needed for admin purposes and cancelling bookings
     {
         try {
             FileWriter fileWriter = new FileWriter("./resources/GuestInformation.txt", true);
@@ -151,7 +147,7 @@ public class Writer {
         {
         }
     }
-    public static void writeNextBookingNum() throws IOException
+    public static void writeNextBookingNum() throws IOException //Each initialisation of booking will call this method and increase the number by 1.
     {
       int newBookingNum = Reader.readBookingNum() +1;
         FileWriter fileWriter = new FileWriter("./resources/bookingNum.txt", false);

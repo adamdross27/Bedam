@@ -2,6 +2,13 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
+/**
+ * Program Design and Construction
+ * Ben Rogers - 21145117
+ * Adam Ross - 21151208
+ * Assignment Two - Hotel Booking System
+ *
+ */
 package bedam;
 
 import java.awt.Desktop;
@@ -17,7 +24,7 @@ import javax.swing.JOptionPane;
  *
  * @author benr0
  */
-public class MakeBookingJFrame extends javax.swing.JFrame {
+public class MakeBookingJFrame extends javax.swing.JFrame { //The most complex class we have in this GUI containing many drop down boxes
 
     /**
      * Creates new form MakeBookingJFrame
@@ -76,8 +83,9 @@ public class MakeBookingJFrame extends javax.swing.JFrame {
             }
         });
 
-        titleLabel.setFont(new java.awt.Font("Cambria", 0, 36)); // NOI18N
+        titleLabel.setFont(new java.awt.Font("Cambria", 1, 36)); // NOI18N
         titleLabel.setForeground(new java.awt.Color(172, 140, 71));
+        titleLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         titleLabel.setText("Make a Booking");
         titleLabel.setRequestFocusEnabled(false);
 
@@ -113,21 +121,31 @@ public class MakeBookingJFrame extends javax.swing.JFrame {
         });
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Check in date");
 
         numOfNightsChoice.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30" }));
+        numOfNightsChoice.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                numOfNightsChoiceActionPerformed(evt);
+            }
+        });
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
         jLabel2.setText("Number of Nights");
 
         bedroomChoice.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1" }));
 
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
         jLabel3.setText("Bedrooms:");
 
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
         jLabel4.setText("Bathrooms");
 
+        jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
         jLabel5.setText("Add Ons:");
 
+        option1.setFont(new java.awt.Font("Segoe UI", 2, 15)); // NOI18N
         option1.setText("Warm Towels ($10)");
         option1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -135,11 +153,18 @@ public class MakeBookingJFrame extends javax.swing.JFrame {
             }
         });
 
+        option2.setFont(new java.awt.Font("Segoe UI", 2, 15)); // NOI18N
         option2.setText("Private Room ($45)");
 
+        option3.setFont(new java.awt.Font("Segoe UI", 2, 15)); // NOI18N
         option3.setText("Air Conditioning ($20)");
 
         bathroomChoice.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1" }));
+        bathroomChoice.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bathroomChoiceActionPerformed(evt);
+            }
+        });
 
         showInvoiceButton.setVisible(false);
         showInvoiceButton.setText("Show Invoice");
@@ -154,106 +179,107 @@ public class MakeBookingJFrame extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(83, 83, 83)
-                .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel4)
-                .addGap(232, 232, 232)
-                .addComponent(jLabel5)
-                .addGap(97, 97, 97))
-            .addGroup(layout.createSequentialGroup()
                 .addGap(106, 106, 106)
                 .addComponent(bookingText)
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(96, 96, 96)
-                            .addComponent(bedroomChoice, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(158, 158, 158))
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                            .addComponent(accomChoice, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(35, 35, 35)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(69, 69, 69)
-                        .addComponent(backButton)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(showInvoiceButton)
-                        .addGap(47, 47, 47))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(152, 152, 152)
-                        .addComponent(accomLabel)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(titleLabel)
-                        .addGap(349, 349, 349))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(bathroomChoice, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(193, 193, 193)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(option2)
-                            .addComponent(option1)
-                            .addComponent(option3))
-                        .addGap(86, 86, 86))
+                        .addContainerGap()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(accomLabel)
+                            .addComponent(accomChoice, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(71, 71, 71))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(183, 183, 183)
-                                .addComponent(jLabel1)
-                                .addGap(97, 97, 97)
-                                .addComponent(jLabel2))
+                                .addGap(25, 25, 25)
+                                .addComponent(backButton))
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(85, 85, 85)
-                                .addComponent(yearChoice, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(monthChoice, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(dateChoice, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(77, 77, 77)
-                                .addComponent(numOfNightsChoice, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(confirmButton))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                                .addGap(95, 95, 95)
+                                .addComponent(bedroomChoice, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(51, 51, 51)
+                        .addComponent(bathroomChoice, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addComponent(yearChoice, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(27, 27, 27)
+                                .addComponent(monthChoice, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(18, 18, 18)
+                                        .addComponent(dateChoice, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(152, 152, 152))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                        .addGap(101, 101, 101)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(option2, javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(option1, javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(option3, javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addGap(57, 57, 57)
+                                                .addComponent(jLabel5)
+                                                .addGap(63, 63, 63))))))
+                            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 390, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap(103, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                        .addGap(72, 72, 72)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(numOfNightsChoice, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(showInvoiceButton)
+                            .addComponent(jLabel2))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(confirmButton)
+                        .addGap(129, 129, 129))))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(86, 86, 86)
+                .addComponent(jLabel3)
+                .addGap(64, 64, 64)
+                .addComponent(jLabel4)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(titleLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(60, 60, 60)
+                .addGap(36, 36, 36)
                 .addComponent(titleLabel)
+                .addGap(34, 34, 34)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(accomLabel))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(dateChoice)
+                    .addComponent(yearChoice)
+                    .addComponent(accomChoice, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
+                    .addComponent(monthChoice))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addComponent(accomLabel))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(18, 84, Short.MAX_VALUE)
+                        .addComponent(jLabel5)
+                        .addGap(26, 26, 26)
+                        .addComponent(option1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(option2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(option3))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(58, 58, 58)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel1)
-                            .addComponent(jLabel2))))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(accomChoice, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(monthChoice, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(dateChoice, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(yearChoice, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(numOfNightsChoice, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(41, 41, 41)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel4)
-                    .addComponent(jLabel5))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(bedroomChoice, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(option1)
-                    .addComponent(bathroomChoice, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(option2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(option3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
-                .addComponent(bookingText)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel2))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(bedroomChoice, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(bathroomChoice, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(numOfNightsChoice, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(bookingText)))
                 .addGap(61, 61, 61)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(confirmButton)
@@ -266,69 +292,68 @@ public class MakeBookingJFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void accomChoiceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_accomChoiceActionPerformed
-        // TODO add your handling code here:
-        String choice = accomChoice.getSelectedItem().toString();
+        // TODO add your handling code here:                                        //Depending on the accommodation box that is selected, it will present the appropriate add on titles and prices for the user.
+        String choice = getAccomChoice().getSelectedItem().toString();
         if (choice.equals("Room")) {
-            option1.setText("Warm Towels ($10)");
-            option2.setText("Private Room ($45)");
-            option3.setText("Air Conditioning ($20)");
-            bathroomChoice.setModel(new javax.swing.DefaultComboBoxModel<>(new String[]{"1"}));
-            bedroomChoice.setModel(new javax.swing.DefaultComboBoxModel<>(new String[]{"1"}));
+            getOption1().setText("Warm Towels ($10)");
+            getOption2().setText("Private Room ($45)");
+            getOption3().setText("Air Conditioning ($20)");
+            getBathroomChoice().setModel(new javax.swing.DefaultComboBoxModel<>(new String[]{"1"})); //Will display the combo box value(s) for room which can only choose from 1 bed/ 1 bathroom
+            getBedroomChoice().setModel(new javax.swing.DefaultComboBoxModel<>(new String[]{"1"}));
         }
-        if (choice.equals("Apartment")) {
-            option1.setText("Laundry Access ($20)");
-            option2.setText("Parking ($50)");
-            option3.setText("Balcony ($30)");
-            bathroomChoice.setModel(new javax.swing.DefaultComboBoxModel<>(new String[]{"1", "2"}));
-            bedroomChoice.setModel(new javax.swing.DefaultComboBoxModel<>(new String[]{"1", "2", "3"}));
+        if (choice.equals("Apartment")) { //Apartment information is displayed when apartment is selected from combo box.
+            getOption1().setText("Laundry Access ($20)");
+            getOption2().setText("Parking ($50)"); //Add on titles and prices
+            getOption3().setText("Balcony ($30)");
+            getBathroomChoice().setModel(new javax.swing.DefaultComboBoxModel<>(new String[]{"1", "2"})); //Can choose 1-2 bathrooms
+            getBedroomChoice().setModel(new javax.swing.DefaultComboBoxModel<>(new String[]{"1", "2", "3"})); //Can choose 1 - 3 bedrooms
         }
-        if (choice.equals("House")) {
-            option1.setText("Pool ($50)");
-            option2.setText("Backyard ($15)");
-            option3.setText("Garage Space ($20)");
-            bathroomChoice.setModel(new javax.swing.DefaultComboBoxModel<>(new String[]{"1", "2", "3", "4", "5"}));
-            bedroomChoice.setModel(new javax.swing.DefaultComboBoxModel<>(new String[]{"1", "2", "3", "4", "5"}));
+        if (choice.equals("House")) { //House information is shown when it is clicked from combo box.
+            getOption1().setText("Pool ($50)");
+            getOption2().setText("Backyard ($15)"); // Add on titles and prices displayed
+            getOption3().setText("Garage Space ($20)");
+            getBathroomChoice().setModel(new javax.swing.DefaultComboBoxModel<>(new String[]{"1", "2", "3", "4", "5"})); // 1 - 5 bathrooms available
+            getBedroomChoice().setModel(new javax.swing.DefaultComboBoxModel<>(new String[]{"1", "2", "3", "4", "5"})); //1 - 5 bedrooms available
         }
     }//GEN-LAST:event_accomChoiceActionPerformed
 
     private void confirmButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmButtonActionPerformed
-        // TODO add your handling code here:
+        // TODO add your handling code here:                                       //The user will have selected their options and now click confirm to book their booking
         if (JOptionPane.showConfirmDialog(null, "Are you sure", "Confirm Accomodation Type", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
-            //if yes:
+            //if yes:                                                An ARE YOU SURE message box will appear for the user which they can click yes or no to.
             CustomerHashMap customerHashMap = new CustomerHashMap();
-            bookingText.setVisible(true);
-            bookingText.setText("You have selected a " + accomChoice.getSelectedItem() + " Your check in date is: " + dateChoice.getSelectedItem() + " of " + monthChoice.getSelectedItem() + " " + yearChoice.getSelectedItem() + ". You will be staying for " + numOfNightsChoice.getSelectedItem() + " nights");
-            showInvoiceButton.setVisible(true);
-            confirmButton.setVisible(false);
-            String bedroomStr = bedroomChoice.getSelectedItem().toString();
-            String bathroomStr = bathroomChoice.getSelectedItem().toString();
+            getBookingText().setVisible(true); //If they click yes, all of the below lines are run which will display information to them as well as setting values for the booking object
+            getBookingText().setText("You have selected a " + getAccomChoice().getSelectedItem() + " Your check in date is: " + getDateChoice().getSelectedItem() + " of " + getMonthChoice().getSelectedItem() + " " + getYearChoice().getSelectedItem() + ". You will be staying for " + getNumOfNightsChoice().getSelectedItem() + " nights");
+            getShowInvoiceButton().setVisible(true);
+            getConfirmButton().setVisible(false);
+            String bedroomStr = getBedroomChoice().getSelectedItem().toString(); 
+            String bathroomStr = getBathroomChoice().getSelectedItem().toString();
             int bedroomNum = Integer.parseInt(bedroomStr);
-            int bathroomNum = Integer.parseInt(bathroomStr);
+            int bathroomNum = Integer.parseInt(bathroomStr); //Parsing from String to Int
 
-            String locationStr = accomChoice.getSelectedItem().toString();
-            int numNightsBooked = Integer.parseInt(numOfNightsChoice.getSelectedItem().toString());
-            String year = yearChoice.getSelectedItem().toString();
-            int monthNum = monthChoice.getSelectedIndex() + 1;
+            String locationStr = getAccomChoice().getSelectedItem().toString();
+            int numNightsBooked = Integer.parseInt(getNumOfNightsChoice().getSelectedItem().toString());
+            String year = getYearChoice().getSelectedItem().toString();
+            int monthNum = getMonthChoice().getSelectedIndex() + 1;
             String month = "";
-            if (yearChoice.getSelectedItem().toString().equals("2023")) {
+            if (getYearChoice().getSelectedItem().toString().equals("2023")) { //Since in 2023 we are opening our bookings from July onwards. The first Index is the 7th month hence why we need to add 6 onto the index
                 monthNum += 6;
             }
             if (monthNum < 10) {
-                month = "0" + monthNum;
+                month = "0" + monthNum; //If month number is 7, it needs to be converted to 07 to match the LocalDate format.
             } else {
                 month = monthNum + "";
             }
-            String day = dateChoice.getSelectedItem().toString();
+            String day = getDateChoice().getSelectedItem().toString();
 
             String dateString = day + "-" + month + "-" + year;
-            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy"); //Formatter to convert date to appropriate form
 
-            LocalDate checkInDate = LocalDate.parse(dateString, formatter);
-            LocalDate checkOutDate = checkInDate.plusDays(numNightsBooked);
+            LocalDate checkInDate = LocalDate.parse(dateString, formatter); //CheckInDate being parsed into the formatter
+            LocalDate checkOutDate = checkInDate.plusDays(numNightsBooked); //CheckOutDate being parsed into the formatter
 
-            //checkOutDate = LocalDate.parse(dateString, formatter);
             checkOutDate = checkInDate.plusDays(numNightsBooked);
-            Accommodation accom = new Accommodation(bedroomStr, bathroomStr) {
+            Accommodation accom = new Accommodation(bedroomStr, bathroomStr) { //Initialising accommodation object
                 @Override
                 public double calculateRentPerNight(int numOfNights) {
                     return 0;
@@ -338,39 +363,33 @@ public class MakeBookingJFrame extends javax.swing.JFrame {
                 public void printDetails() {
                 }
             };
-            accom.setBathrooms(bathroomNum);
+            accom.setBathrooms(bathroomNum); //Setting the values
             accom.setBedrooms(bedroomNum);
             Booking booking = null;
-//            try {
-//                booking = new Booking(locationStr, accom, numNightsBooked, checkInDate, checkOutDate, Reader.readBookingNum());
-//            } catch (IOException ex) {
-//                Logger.getLogger(MakeBookingJFrame.class.getName()).log(Level.SEVERE, null, ex);
-//            }
-
-            try {
+            try { //Initialising a new booking object using the values selected by the user from the combo boxes and tick boxes
                 booking = new Booking(locationStr, accom, numNightsBooked, checkInDate, checkOutDate, Reader.readBookingNum());
             } catch (IOException ex) {
                 Logger.getLogger(MakeBookingJFrame.class.getName()).log(Level.SEVERE, null, ex);
             }
-            double totalCost = booking.getAccommodation().getRentPerNight() * numNightsBooked;
+            double totalCost = booking.getAccommodation().getRentPerNight() * numNightsBooked; //Calculating total cost
             accom.setRentPerNight(totalCost);
 
-            if (locationStr.equalsIgnoreCase("room")) {
-                Room.setHasTowels(option1.isSelected());
-                Room.setIsPrivateRoom(option2.isSelected());
-                Room.setHasAirConditioning(option3.isSelected());
+            if (locationStr.equalsIgnoreCase("room")) { //These methods get the accommodation type and check the tick boxes for the add ons
+                Room.setHasTowels(getOption1().isSelected());   //It then checks if the tick box has been selected, that means it will set the Room.SetHasTowels to True
+                Room.setIsPrivateRoom(getOption2().isSelected()); //The same follows for the other add ons
+                Room.setHasAirConditioning(getOption3().isSelected());
             } else if (locationStr.equalsIgnoreCase("apartment")) {
-                Apartment.setHasLaundry(option1.isSelected());
-                Apartment.setHasParking(option2.isSelected());
-                Apartment.setHasBalcony(option3.isSelected());
+                Apartment.setHasLaundry(getOption1().isSelected());
+                Apartment.setHasParking(getOption2().isSelected());
+                Apartment.setHasBalcony(getOption3().isSelected());
             } else if (locationStr.equalsIgnoreCase("house")) {
-                House.setHasPool(option1.isSelected());
-                House.setHasYard(option2.isSelected());
-                House.setHasGarage(option3.isSelected());
+                House.setHasPool(getOption1().isSelected());
+                House.setHasYard(getOption2().isSelected());
+                House.setHasGarage(getOption3().isSelected());
             }
 
-            Writer.writeInvoice(booking, checkInDate, checkOutDate, numNightsBooked, accom);
-            customerHashMap.putBooking(booking);
+            Writer.writeInvoice(booking, checkInDate, checkOutDate, numNightsBooked, accom); //Writes the invoice onto the txt file.
+            customerHashMap.putBooking(booking); //Adds to customer hashmap
 
             try {
                 DatabaseBedam.addToDB(booking.getBookingNum(), booking.getLocationStr(), accom.getBedrooms(), accom.getBathrooms(), numNightsBooked, booking.getAccommodation().getRentPerNight(), checkInDate, checkOutDate);
@@ -378,23 +397,23 @@ public class MakeBookingJFrame extends javax.swing.JFrame {
                 Logger.getLogger(MakeBookingJFrame.class.getName()).log(Level.SEVERE, null, ex);
             }
 
-            BedamJFrame.main(null);
+            BedamJFrame.main(null); //After the confirmation, it calls the main menu and disposes this frame.
             MakeBookingJFrame.super.dispose();
 
         }
     }//GEN-LAST:event_confirmButtonActionPerformed
 
     private void monthChoiceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_monthChoiceActionPerformed
-        // TODO add your handling code here:
-        String choice = monthChoice.getSelectedItem().toString();
+        // TODO add your handling code here:                          //Based on the month, the appropriate number of days need to be provided in the combo box (e.g. Feb has only 28 days)
+        String choice = getMonthChoice().getSelectedItem().toString();
         if ("January".equals(choice) || "March".equals(choice) || "May".equals(choice) || "July".equals(choice) || "August".equals(choice) || "October".equals(choice) || "December".equals(choice)) {
-            dateChoice.setModel(new javax.swing.DefaultComboBoxModel<>(new String[]{"01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31"}));
+            getDateChoice().setModel(new javax.swing.DefaultComboBoxModel<>(new String[]{"01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31"}));
 
         } else if ("February".equals(choice)) {
-            dateChoice.setModel(new javax.swing.DefaultComboBoxModel<>(new String[]{"01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28"}));
+            getDateChoice().setModel(new javax.swing.DefaultComboBoxModel<>(new String[]{"01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28"}));
 
-        } else {
-            dateChoice.setModel(new javax.swing.DefaultComboBoxModel<>(new String[]{"01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30"}));
+        } else { //Months with 30 days
+            getDateChoice().setModel(new javax.swing.DefaultComboBoxModel<>(new String[]{"01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30"}));
         }
     }//GEN-LAST:event_monthChoiceActionPerformed
 
@@ -404,23 +423,23 @@ public class MakeBookingJFrame extends javax.swing.JFrame {
 
     private void yearChoiceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_yearChoiceActionPerformed
         // TODO add your handling code here:
-        String choice = yearChoice.getSelectedItem().toString();
-        if (choice.equals("2023")) {
-            monthChoice.setModel(new javax.swing.DefaultComboBoxModel<>(new String[]{"July", "August", "September", "October", "November", "December"}));
-        } else {
-            monthChoice.setModel(new javax.swing.DefaultComboBoxModel<>(new String[]{"January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"}));
+        String choice = getYearChoice().getSelectedItem().toString(); //We are all boooked out until the 1st of July so they can begin to book from July 1 2023 until December 31 2024.
+        if (choice.equals("2023")) { //If the year is 2023, it only displays July to December
+            getMonthChoice().setModel(new javax.swing.DefaultComboBoxModel<>(new String[]{"July", "August", "September", "October", "November", "December"}));
+        } else { //2024 displays all months.
+            getMonthChoice().setModel(new javax.swing.DefaultComboBoxModel<>(new String[]{"January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"}));
         }
     }//GEN-LAST:event_yearChoiceActionPerformed
 
     private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
         // TODO add your handling code here:
-        BedamJFrame.main(null);
+        BedamJFrame.main(null); //Goes back to main menu and disposes current frame.
         MakeBookingJFrame.super.dispose();
     }//GEN-LAST:event_backButtonActionPerformed
 
     private void showInvoiceButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_showInvoiceButtonActionPerformed
         // TODO add your handling code here:
-        File file = new File("./resources/invoice.txt");
+        File file = new File("./resources/invoice.txt"); //Show invoice button will automatically open the invoice.txt file for the user
         try {
             Desktop.getDesktop().open(file);
         } catch (IOException ex) {
@@ -431,6 +450,14 @@ public class MakeBookingJFrame extends javax.swing.JFrame {
     private void option1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_option1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_option1ActionPerformed
+
+    private void numOfNightsChoiceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_numOfNightsChoiceActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_numOfNightsChoiceActionPerformed
+
+    private void bathroomChoiceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bathroomChoiceActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_bathroomChoiceActionPerformed
 
     /**
      * @param args the command line arguments
@@ -462,7 +489,7 @@ public class MakeBookingJFrame extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new MakeBookingJFrame().setVisible(true);
+                new MakeBookingJFrame().setVisible(true); //Opens the MakeBooking Frame
             }
         });
     }
@@ -490,4 +517,298 @@ public class MakeBookingJFrame extends javax.swing.JFrame {
     private javax.swing.JLabel titleLabel;
     private javax.swing.JComboBox<String> yearChoice;
     // End of variables declaration//GEN-END:variables
+
+    /**
+     * @return the accomChoice
+     */
+    public javax.swing.JComboBox<String> getAccomChoice() {
+        return accomChoice;
+    }
+
+    /**
+     * @param accomChoice the accomChoice to set
+     */
+    public void setAccomChoice(javax.swing.JComboBox<String> accomChoice) {
+        this.accomChoice = accomChoice;
+    }
+
+    /**
+     * @return the accomLabel
+     */
+    public javax.swing.JLabel getAccomLabel() {
+        return accomLabel;
+    }
+
+    /**
+     * @param accomLabel the accomLabel to set
+     */
+    public void setAccomLabel(javax.swing.JLabel accomLabel) {
+        this.accomLabel = accomLabel;
+    }
+
+    /**
+     * @return the backButton
+     */
+    public javax.swing.JButton getBackButton() {
+        return backButton;
+    }
+
+    /**
+     * @param backButton the backButton to set
+     */
+    public void setBackButton(javax.swing.JButton backButton) {
+        this.backButton = backButton;
+    }
+
+    /**
+     * @return the bathroomChoice
+     */
+    public javax.swing.JComboBox<String> getBathroomChoice() {
+        return bathroomChoice;
+    }
+
+    /**
+     * @param bathroomChoice the bathroomChoice to set
+     */
+    public void setBathroomChoice(javax.swing.JComboBox<String> bathroomChoice) {
+        this.bathroomChoice = bathroomChoice;
+    }
+
+    /**
+     * @return the bedroomChoice
+     */
+    public javax.swing.JComboBox<String> getBedroomChoice() {
+        return bedroomChoice;
+    }
+
+    /**
+     * @param bedroomChoice the bedroomChoice to set
+     */
+    public void setBedroomChoice(javax.swing.JComboBox<String> bedroomChoice) {
+        this.bedroomChoice = bedroomChoice;
+    }
+
+    /**
+     * @return the bookingText
+     */
+    public javax.swing.JLabel getBookingText() {
+        return bookingText;
+    }
+
+    /**
+     * @param bookingText the bookingText to set
+     */
+    public void setBookingText(javax.swing.JLabel bookingText) {
+        this.bookingText = bookingText;
+    }
+
+    /**
+     * @return the confirmButton
+     */
+    public javax.swing.JButton getConfirmButton() {
+        return confirmButton;
+    }
+
+    /**
+     * @param confirmButton the confirmButton to set
+     */
+    public void setConfirmButton(javax.swing.JButton confirmButton) {
+        this.confirmButton = confirmButton;
+    }
+
+    /**
+     * @return the dateChoice
+     */
+    public javax.swing.JComboBox<String> getDateChoice() {
+        return dateChoice;
+    }
+
+    /**
+     * @param dateChoice the dateChoice to set
+     */
+    public void setDateChoice(javax.swing.JComboBox<String> dateChoice) {
+        this.dateChoice = dateChoice;
+    }
+
+    /**
+     * @return the jLabel1
+     */
+    public javax.swing.JLabel getjLabel1() {
+        return jLabel1;
+    }
+
+    /**
+     * @param jLabel1 the jLabel1 to set
+     */
+    public void setjLabel1(javax.swing.JLabel jLabel1) {
+        this.jLabel1 = jLabel1;
+    }
+
+    /**
+     * @return the jLabel2
+     */
+    public javax.swing.JLabel getjLabel2() {
+        return jLabel2;
+    }
+
+    /**
+     * @param jLabel2 the jLabel2 to set
+     */
+    public void setjLabel2(javax.swing.JLabel jLabel2) {
+        this.jLabel2 = jLabel2;
+    }
+
+    /**
+     * @return the jLabel3
+     */
+    public javax.swing.JLabel getjLabel3() {
+        return jLabel3;
+    }
+
+    /**
+     * @param jLabel3 the jLabel3 to set
+     */
+    public void setjLabel3(javax.swing.JLabel jLabel3) {
+        this.jLabel3 = jLabel3;
+    }
+
+    /**
+     * @return the jLabel4
+     */
+    public javax.swing.JLabel getjLabel4() {
+        return jLabel4;
+    }
+
+    /**
+     * @param jLabel4 the jLabel4 to set
+     */
+    public void setjLabel4(javax.swing.JLabel jLabel4) {
+        this.jLabel4 = jLabel4;
+    }
+
+    /**
+     * @return the jLabel5
+     */
+    public javax.swing.JLabel getjLabel5() {
+        return jLabel5;
+    }
+
+    /**
+     * @param jLabel5 the jLabel5 to set
+     */
+    public void setjLabel5(javax.swing.JLabel jLabel5) {
+        this.jLabel5 = jLabel5;
+    }
+
+    /**
+     * @return the monthChoice
+     */
+    public javax.swing.JComboBox<String> getMonthChoice() {
+        return monthChoice;
+    }
+
+    /**
+     * @param monthChoice the monthChoice to set
+     */
+    public void setMonthChoice(javax.swing.JComboBox<String> monthChoice) {
+        this.monthChoice = monthChoice;
+    }
+
+    /**
+     * @return the numOfNightsChoice
+     */
+    public javax.swing.JComboBox<String> getNumOfNightsChoice() {
+        return numOfNightsChoice;
+    }
+
+    /**
+     * @param numOfNightsChoice the numOfNightsChoice to set
+     */
+    public void setNumOfNightsChoice(javax.swing.JComboBox<String> numOfNightsChoice) {
+        this.numOfNightsChoice = numOfNightsChoice;
+    }
+
+    /**
+     * @return the option1
+     */
+    public javax.swing.JCheckBox getOption1() {
+        return option1;
+    }
+
+    /**
+     * @param option1 the option1 to set
+     */
+    public void setOption1(javax.swing.JCheckBox option1) {
+        this.option1 = option1;
+    }
+
+    /**
+     * @return the option2
+     */
+    public javax.swing.JCheckBox getOption2() {
+        return option2;
+    }
+
+    /**
+     * @param option2 the option2 to set
+     */
+    public void setOption2(javax.swing.JCheckBox option2) {
+        this.option2 = option2;
+    }
+
+    /**
+     * @return the option3
+     */
+    public javax.swing.JCheckBox getOption3() {
+        return option3;
+    }
+
+    /**
+     * @param option3 the option3 to set
+     */
+    public void setOption3(javax.swing.JCheckBox option3) {
+        this.option3 = option3;
+    }
+
+    /**
+     * @return the showInvoiceButton
+     */
+    public javax.swing.JButton getShowInvoiceButton() {
+        return showInvoiceButton;
+    }
+
+    /**
+     * @param showInvoiceButton the showInvoiceButton to set
+     */
+    public void setShowInvoiceButton(javax.swing.JButton showInvoiceButton) {
+        this.showInvoiceButton = showInvoiceButton;
+    }
+
+    /**
+     * @return the titleLabel
+     */
+    public javax.swing.JLabel getTitleLabel() {
+        return titleLabel;
+    }
+
+    /**
+     * @param titleLabel the titleLabel to set
+     */
+    public void setTitleLabel(javax.swing.JLabel titleLabel) {
+        this.titleLabel = titleLabel;
+    }
+
+    /**
+     * @return the yearChoice
+     */
+    public javax.swing.JComboBox<String> getYearChoice() {
+        return yearChoice;
+    }
+
+    /**
+     * @param yearChoice the yearChoice to set
+     */
+    public void setYearChoice(javax.swing.JComboBox<String> yearChoice) {
+        this.yearChoice = yearChoice;
+    }
 }

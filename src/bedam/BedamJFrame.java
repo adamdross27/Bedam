@@ -210,6 +210,8 @@ public class BedamJFrame extends javax.swing.JFrame {
 
     private void cancelBookingButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelBookingButtonActionPerformed
         // TODO add your handling code here:
+        CancelBookingJFrame.main(null);
+        BedamJFrame.super.dispose();
     }//GEN-LAST:event_cancelBookingButtonActionPerformed
 
     private void exitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitButtonActionPerformed
@@ -221,7 +223,7 @@ public class BedamJFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
         AboutFacilitiesJFrame.main(null);
         BedamJFrame.super.dispose();
-        
+
     }//GEN-LAST:event_facilitiesButtonActionPerformed
 
     private void contactButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_contactButtonActionPerformed
@@ -273,9 +275,11 @@ public class BedamJFrame extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
+  //              CustomerHashMap.customerHashMap.clear();
+//                CustomerHashMap.fillHashMap(Reader.readHashMapFile());
+               // CustomerHashMap.printHashMap();
                 new BedamJFrame().setVisible(true);
-                
-                
+
             }
         });
     }

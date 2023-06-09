@@ -1,11 +1,11 @@
 ------------------------------------------------------------------------
 Thank you for booking with Bedam!
 We have your booking details as follows: 
-You are staying for 1 nights.
-Your stay is from 01-07-2023 to 02-07-2023
-Bathrooms: 1
-Bedrooms: 1
+You are staying for 8 nights.
+Your stay is from 01-10-2023 to 09-10-2023
+Bathrooms: 2
+Bedrooms: 3
 ------------------------------------------------------------------------
 
-Total rent to pay: 100.0
-Booking number: 105
+Total rent to pay: 1320.0
+Booking number: 4

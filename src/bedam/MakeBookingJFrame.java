@@ -279,15 +279,15 @@ public class MakeBookingJFrame extends javax.swing.JFrame {
             option1.setText("Laundry Access ($20)");
             option2.setText("Parking ($50)");
             option3.setText("Balcony ($30)");
-            bathroomChoice.setModel(new javax.swing.DefaultComboBoxModel<>(new String[]{"1","2"}));
-            bedroomChoice.setModel(new javax.swing.DefaultComboBoxModel<>(new String[]{"1","2","3"}));
+            bathroomChoice.setModel(new javax.swing.DefaultComboBoxModel<>(new String[]{"1", "2"}));
+            bedroomChoice.setModel(new javax.swing.DefaultComboBoxModel<>(new String[]{"1", "2", "3"}));
         }
         if (choice.equals("House")) {
             option1.setText("Pool ($50)");
             option2.setText("Backyard ($15)");
             option3.setText("Garage Space ($20)");
-            bathroomChoice.setModel(new javax.swing.DefaultComboBoxModel<>(new String[]{"1","2","3","4","5"}));
-            bedroomChoice.setModel(new javax.swing.DefaultComboBoxModel<>(new String[]{"1","2","3","4","5"}));
+            bathroomChoice.setModel(new javax.swing.DefaultComboBoxModel<>(new String[]{"1", "2", "3", "4", "5"}));
+            bedroomChoice.setModel(new javax.swing.DefaultComboBoxModel<>(new String[]{"1", "2", "3", "4", "5"}));
         }
     }//GEN-LAST:event_accomChoiceActionPerformed
 
@@ -295,6 +295,7 @@ public class MakeBookingJFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
         if (JOptionPane.showConfirmDialog(null, "Are you sure", "Confirm Accomodation Type", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
             //if yes:
+            CustomerHashMap customerHashMap = new CustomerHashMap();
             bookingText.setVisible(true);
             bookingText.setText("You have selected a " + accomChoice.getSelectedItem() + " Your check in date is: " + dateChoice.getSelectedItem() + " of " + monthChoice.getSelectedItem() + " " + yearChoice.getSelectedItem() + ". You will be staying for " + numOfNightsChoice.getSelectedItem() + " nights");
             showInvoiceButton.setVisible(true);
@@ -303,36 +304,31 @@ public class MakeBookingJFrame extends javax.swing.JFrame {
             String bathroomStr = bathroomChoice.getSelectedItem().toString();
             int bedroomNum = Integer.parseInt(bedroomStr);
             int bathroomNum = Integer.parseInt(bathroomStr);
-            
+
             String locationStr = accomChoice.getSelectedItem().toString();
             int numNightsBooked = Integer.parseInt(numOfNightsChoice.getSelectedItem().toString());
             String year = yearChoice.getSelectedItem().toString();
-            int monthNum = monthChoice.getSelectedIndex()+1;
+            int monthNum = monthChoice.getSelectedIndex() + 1;
             String month = "";
-            if(yearChoice.getSelectedItem().toString().equals("2023"))
-            {
+            if (yearChoice.getSelectedItem().toString().equals("2023")) {
                 monthNum += 6;
             }
-            if(monthNum<10)
-            {
-                month = "0"+monthNum;
-            }
-            else
-            {
-                month = monthNum+"";
+            if (monthNum < 10) {
+                month = "0" + monthNum;
+            } else {
+                month = monthNum + "";
             }
             String day = dateChoice.getSelectedItem().toString();
-            
-            String dateString = day+"-"+month+"-"+year;
+
+            String dateString = day + "-" + month + "-" + year;
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
-            
+
             LocalDate checkInDate = LocalDate.parse(dateString, formatter);
             LocalDate checkOutDate = checkInDate.plusDays(numNightsBooked);
 
             //checkOutDate = LocalDate.parse(dateString, formatter);
             checkOutDate = checkInDate.plusDays(numNightsBooked);
-            Accommodation accom = new Accommodation(bedroomStr, bathroomStr) 
-            {
+            Accommodation accom = new Accommodation(bedroomStr, bathroomStr) {
                 @Override
                 public double calculateRentPerNight(int numOfNights) {
                     return 0;
@@ -351,38 +347,40 @@ public class MakeBookingJFrame extends javax.swing.JFrame {
 //                Logger.getLogger(MakeBookingJFrame.class.getName()).log(Level.SEVERE, null, ex);
 //            }
 
-            
-            
             try {
                 booking = new Booking(locationStr, accom, numNightsBooked, checkInDate, checkOutDate, Reader.readBookingNum());
             } catch (IOException ex) {
                 Logger.getLogger(MakeBookingJFrame.class.getName()).log(Level.SEVERE, null, ex);
             }
-            double rentPerNight = booking.getAccommodation().getRentPerNight() * numNightsBooked;
-            accom.setRentPerNight(rentPerNight);
-            
-            if(locationStr.equalsIgnoreCase("room"))
-            {
+            double totalCost = booking.getAccommodation().getRentPerNight() * numNightsBooked;
+            accom.setRentPerNight(totalCost);
+
+            if (locationStr.equalsIgnoreCase("room")) {
                 Room.setHasTowels(option1.isSelected());
                 Room.setIsPrivateRoom(option2.isSelected());
                 Room.setHasAirConditioning(option3.isSelected());
-            }
-            else if(locationStr.equalsIgnoreCase("apartment"))
-            {
+            } else if (locationStr.equalsIgnoreCase("apartment")) {
                 Apartment.setHasLaundry(option1.isSelected());
                 Apartment.setHasParking(option2.isSelected());
                 Apartment.setHasBalcony(option3.isSelected());
-            }
-            else if(locationStr.equalsIgnoreCase("house"))
-            {
+            } else if (locationStr.equalsIgnoreCase("house")) {
                 House.setHasPool(option1.isSelected());
                 House.setHasYard(option2.isSelected());
                 House.setHasGarage(option3.isSelected());
             }
-            
+
+            Writer.writeInvoice(booking, checkInDate, checkOutDate, numNightsBooked, accom);
+            customerHashMap.putBooking(booking);
+
+            try {
+                DatabaseBedam.addToDB(booking.getBookingNum(), booking.getLocationStr(), accom.getBedrooms(), accom.getBathrooms(), numNightsBooked, booking.getAccommodation().getRentPerNight(), checkInDate, checkOutDate);
+            } catch (ClassNotFoundException ex) {
+                Logger.getLogger(MakeBookingJFrame.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
             BedamJFrame.main(null);
             MakeBookingJFrame.super.dispose();
-            Writer.writeInvoice(booking, checkInDate, checkOutDate, numNightsBooked, accom);
+
         }
     }//GEN-LAST:event_confirmButtonActionPerformed
 
